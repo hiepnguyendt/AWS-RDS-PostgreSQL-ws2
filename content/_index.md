@@ -15,5 +15,5 @@ chapter : false
  2. [Database Upgrade](2-databaseupgrade/)
  3. [Performance monitoring and optimization](3-performancemonitoringandoptimization/)
  4. [Backup and Recovery](4-backuprecovery/)
- 5. [Learn more about PostgreSQL](4-learnmoreaboutpostgresql/)
- 6. [Clean Up Resources](5-cleanup/)
+ 5. [Learn more about PostgreSQL](5-learnmoreaboutpostgresql/)
+ 6. [Clean Up Resources](6-cleanup/)
