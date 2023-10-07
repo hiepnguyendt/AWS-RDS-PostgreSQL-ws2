@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Make your Load Test run faster :: AWS RDS PostgreSQL</title>
+
+    
+    <link href="/css/nucleus.css?1696685538" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1696685538" rel="stylesheet">
+    <link href="/css/hybrid.css?1696685538" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1696685538" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1696685538" rel="stylesheet">
+    <link href="/css/auto-complete.css?1696685538" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1696685538" rel="stylesheet">
+    <link href="/css/theme.css?1696685538" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1696685538" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1696685538" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1696685538"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1696685538"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1696685538"></script>
+<script type="text/javascript">
+    
+        var baseurl = "";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1696685538"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/1-introduce/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/1-introduce/">
+           <b> 1. </b> Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-databaseupgrade/" title="Database Upgrade" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-databaseupgrade/">
+           <b> 2. </b> Database Upgrade
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-databaseupgrade/2-1-automaticminorupgrade/" title="Automatic minor upgrade" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-databaseupgrade/2-1-automaticminorupgrade/">
+           <b> 2.1 </b> Automatic minor upgrade
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-databaseupgrade/2-2-upgradingtheengineversion/" title="Upgrading the engine version" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-databaseupgrade/2-2-upgradingtheengineversion/">
+           <b> 2.2 </b> Upgrading the engine version
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/2-databaseupgrade/2-3-validatetheupgradeprocess/" title="Validate the upgrade process" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/2-databaseupgrade/2-3-validatetheupgradeprocess/">
+           <b> 2.3 </b> Validate the upgrade process
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-performancemonitoringandoptimization/" title="Performance monitoring" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/3-performancemonitoringandoptimization/">
+           <b> 3. </b> Performance monitoring
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/" title="CloudWatch Logs &amp; Alerts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/">
+           <b> 3.1 </b> CloudWatch Logs &amp; Alerts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-performancemonitoringandoptimization/3-2-createsomedbactivity/" title="Create some DB Activity" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-performancemonitoringandoptimization/3-2-createsomedbactivity/">
+           <b> 3.2 </b> Create some DB Activity
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-performancemonitoringandoptimization/3-3-reviewingperformance/" title="Reviewing Performance" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-performancemonitoringandoptimization/3-3-reviewingperformance/">
+           <b> 3.3 </b> Reviewing Performance
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-performancemonitoringandoptimization/3-4-databaseloadtest/" title="Database Load Test" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/3-performancemonitoringandoptimization/3-4-databaseloadtest/">
+           <b> 3.4 </b> Database Load Test
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/" title="Make your Load Test run faster" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/">
+           <b> 3.5 </b> Make your Load Test run faster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/" title="Backup and Recovery" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/">
+           <b> 4. </b> Backup and Recovery
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/4-1-automatedbackups/" title="Automated Backups" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/4-1-automatedbackups/">
+           <b> 4.1.</b> Automated Backups
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/4-2-modifybackups/" title="Modify Backups" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/4-2-modifybackups/">
+           <b> 4.2.</b> Modify Backups
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/4-3-manualsnapshots/" title="Manual Snapshots" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/4-3-manualsnapshots/">
+           <b> 4.3. </b> Manual Snapshots
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/4-4-restoresnapshot/" title="Restore Snapshot" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/4-4-restoresnapshot/">
+           <b> 4.4. </b> Restore Snapshot
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/4-5-pointintimerestore/" title="Point in Time Restore" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/4-5-pointintimerestore/">
+           <b> 4.5. </b> Point in Time Restore
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/4-backuprecovery/4-6-awsbackup/" title="AWS Backup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/4-backuprecovery/4-6-awsbackup/">
+           <b> 4.6. </b> AWS Backup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-learnmoreaboutpostgresql/" title="Learn more about RDS PostgreSQL" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-learnmoreaboutpostgresql/">
+           <b> 4. </b> Learn more about RDS PostgreSQL
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/5-learnmoreaboutpostgresql/4-1-pgbench/" title="Benechmarking PostGreSQL Server" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/5-learnmoreaboutpostgresql/4-1-pgbench/">
+           <b> 4.1 </b> Benechmarking PostGreSQL Server
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/6-cleanup/" title="Clean up resources" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/6-cleanup/">
+          <b>6. </b>Clean up resources
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/">Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>AWS RDS PostgreSQL</a> > <a href='/3-performancemonitoringandoptimization/'>Performance monitoring</a> > Make your Load Test run faster
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Make your Load Test run faster
+            </h1>
+          
+
+        
+
+
+
+	<p>In this extra credit exercise, we will show you how to make your <strong>pgbench</strong> transactional workload faster. By faster, we mean we want to complete more transactions in the same amount of overall time. To do so, we will need to identify potential bottlenecks and fix them.</p>
+<p>First, let’s identify our current baseline showing the number of transactions per second our <strong>pgbench</strong> workload performed. Go to your <strong>MobaXterm</strong> window and look at how many tps (<strong>transactions per second</strong>) it reported for the 200 user pgbench load test you ran in the last module.</p>
+<p><img src="/images/3/3-5/1.png" alt="load test faster"></p>
+<p>In the last two lines of the screenshot above, we see that our transactional workload was able to do approximately 578 transactions per second (tps). This is our baseline. The 578 tps was done on an db.t3.medium instance. If your lab environment uses a different instance type, such as the db.t3.medium, you may see a different value.</p>
+<p>Now, let&rsquo;s analyze our performance. In general, you can look at database performance through both a micro and macro lens. At a micro level, you want to look at individual SQL statements and identify if any individual SQL statement is a candidate to be tuned. Performance Insights is a good tool for this kind of micro level analysis.</p>
+<p>At a macro level, you want to look at performance metrics for the overall system. You do this to see if any of the key resources (such as CPU or Memory or IO) are being heavily taxed and becoming a bottleneck. The Monitoring metrics in the RDS Console (which are also available in AWS CloudWatch) are a good tool for this.</p>
+<p>Let&rsquo;s begin by starting with the micro level and looking at our workload in Performance Insights. If we zoom into the time period of the workload (you can select a custom time period by dragging across a range of times in the Database Load chart), we can notice that our top wait event is <strong>WALWriteLock</strong> and <strong>DataFleRead</strong>. We identified this as our top wait event because we can visually see that it occupies the most area in our chart—in other words, it has the most number of sessions waiting on this event (an average of 100 database sessions are waiting on that event). We can also identify that the SQL Statement that is associated with the <strong>WALWriteLock</strong> is <strong>END</strong>, which in PostgreSQL is the statement that closes/commits the transaction.<br>
+<em>Counter metrics</em>
+<img src="/images/3/3-4/3.png" alt="data load test"></p>
+<p><em>Database load</em>
+<img src="/images/3/3-4/4.png" alt="data load test"></p>
+<p><em>Top SQL</em>
+<img src="/images/3/3-4/5.png" alt="data load test"></p>
+<p>You may not be familiar with the <strong>WALWriteLock</strong> wait event. The WAL is the <strong>Write Ahead Log</strong>, also known as the transaction journal. These files contain a persistent record of COMMITs and COMMITs can not return to the client until the WAL information is safely written to disk.</p>
+<p>In our case, it looks like a large number of our 200 database sessions are backing up on the WALWriteLock and these sessions are waiting on this event when their transaction ENDs (commits). In other words, the system appears that it is not able to write the commits to disk fast enough.</p>
+<p>Let&rsquo;s now look at the macro level. To do so, navigate to the RDS Console and go to the Monitoring tab for your database. This will show us some system-wide metrics. Here is an example of what you will see:
+<img src="/images/3/3-5/3.png" alt="load test faster"></p>
+<p>In the above chart, notice that <strong>CPUUtilization</strong> is not high even though we have 200 simultaneous connections on a 2 vCPU shape (db.t3.medium). So, we can say that it does not appear that CPU is a bottleneck.</p>
+<p>Next look at some of the I/O metrics. In the chart above, notice that our DiskQueueDepth of waiting I/O requests has gotten large. Also, notice that our Write IOPS is close to 1000. If you remember from when we created the database, we decided to use Provisioned IOPS (io1) storage with 1000 IOPS <em>(if you forgot, you can see the current specification for your storage under the Configuration tab. Look for the Storage Type and IOPS fields)</em>. So, it is looking like we might be hitting the current limits of our allocated storage. As a final confirmation, you can also page through the charts and find the Write Latency chart:</p>
+<p><img src="/images/3/3-5/4.png" alt="load test faster"></p>
+<p>In the WriteLatency chart, we can see that the write latencies got very high during our workload. This kind of behavior would be inline with our hypothesis that we are hitting the limits of our configured storage (1000 IOPS), which causes the queue depth and write latencies to increase, and which causes writes to the WAL to take longer, and which causes more and more database sessions to have to wait longer and longer for the WAL to be written when they commit their transaction.</p>
+<p>So, it looks like we can make our transactional workload run faster if we increase the IOPS. The good news is that the storage used by RDS is elastic. You can increase/decrease the IOPS configuration while the database runs. You can even change the Storage Type (from io1 to gp2 or vice-versa) while the database runs if you wanted.</p>
+<p>Let’s modify our database and specify 3500 IOPS (up from its current value of 1000). To do so, click the <strong>Modify</strong> button at the top of the screen. On the modification screen, change the <strong>Provisioned IOPS</strong> field to 3500.</p>
+<p><img src="/images/3/3-5/5.png" alt="load test faster"></p>
+<p>Then scroll down to the bottom of the modification page and click Continue.</p>
+<p>On the <strong>Summary and Scheduling</strong> page, be sure to choose <strong>Apply Immediately</strong>. Then click <strong>Modify DB Instance</strong>.</p>
+<p><img src="/images/3/3-5/6.png" alt="load test faster"></p>
+<p>At this point, I suggest you go to the <a href="https://console.aws.amazon.com/rds/home#databases:">Databases List</a> . The nice thing about the <strong>Databases List</strong> page is that it is easy to refresh the page so that you can track the changes in the <strong>Status</strong>.
+<img src="/images/3/3-5/7.png" alt="load test faster"></p>
+<p>What you want to do is watch the <strong>Status</strong> while RDS changes the IOPS. The database will remain open while this happens. But we want to wait for the change to complete before we run our workload again. The process will take 10-15 minutes. You will see the status first say Modifying and then it will say <strong>Storage Optimization</strong> as the backend storage system optimizes itself to deliver on the new IOPS configuration.</p>
+<h4 id="optional-aws-cli">(OPTIONAL) AWS CLI</h4>
+<p>Alternatively you can modify the IOPS of the instance using the AWS CLI as shown below:</p>
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Command
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <p>The following command modifies the IOPS of the instance.</p>
+<pre tabindex="0"><code>aws rds modify-db-instance --db-instance-identifier rds-pg-labs --iops 3500 --allocated-storage 100 --apply-immediately --region &lt; your region &gt;
+</code></pre>
+    </div>
+</div>
+<p>Once the status returns to Available (or if you are impatient, wait at least until it says “Storage Optimization”), then return to Cloud9 and re-run the same workload as before:</p>
+<pre tabindex="0"><code>
+pgbench --host &lt;your database endpoint&gt;--username masteruser --protocol=prepared -P 30 --time=300 --client=200 --jobs=200 &lt;your dabase name&gt;
+</code></pre><p>You should now see that the benchmark runs faster. For example, you should now see approximately 1300 transactions per second (up from 578 transactions per second before).</p>
+<p><img src="/images/3/3-5/8.png" alt="load test faster"></p>
+<p>So, by increasing the <strong>IOPS</strong> capacity of the storage, you were able to make this stress test transactional workload run faster.</p>
+
+<div class="notices tip" ><p>You are not limited to just using the RDS/CloudWatch metrics and Performance Insight. You can extend the default CloudWatch metrics with <a href="https://github.com/awslabs/amazon-aurora-postgres-monitoring">custom ones</a> . You can use other PostgreSQL tools like the Dashboards built into pgAdmin. Or some PostgreSQL DBAs like to use the tool pgBadger to analyze database performance. To learn about how to use pgBadger with RDS PostgreSQL, read <a href="https://aws.amazon.com/blogs/database/optimizing-and-tuning-queries-in-amazon-rds-postgresql-based-on-native-and-external-tools/">this</a> .</p>
+</div>
+
+
+<div class="notices note" ><p>In this workshop, We are using <strong>db.t3.mdedium</strong> instance type for handle labs. So, we might also see a large number of wait events for <strong>DataFileRead</strong>. The <strong>DataFileRead</strong> wait event could indicate that your instance type might not have enough memory to fit the working dataset into the database shared buffers. So, you could consider switching to an instance type with more memory as one possible way to address the <strong>DataFileRead</strong> waits.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/3-performancemonitoringandoptimization/3-4-databaseloadtest/" title="Database Load Test"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/4-backuprecovery/" title="Backup and Recovery" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1696685538"></script>
+    <script src="/js/perfect-scrollbar.min.js?1696685538"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1696685538"></script>
+    <script src="/js/jquery.sticky.js?1696685538"></script>
+    <script src="/js/featherlight.min.js?1696685538"></script>
+    <script src="/js/highlight.pack.js?1696685538"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1696685538"></script>
+    <script src="/js/learn.js?1696685538"></script>
+    <script src="/js/hugo-learn.js?1696685538"></script>
+
+    <link href="/mermaid/mermaid.css?1696685538" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1696685538"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

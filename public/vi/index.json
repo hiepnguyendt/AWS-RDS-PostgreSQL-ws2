@@ -1,0 +1,169 @@
+[
+{
+	"uri": "/vi/",
+	"title": "AWS RDS PostgreSQL",
+	"tags": [],
+	"description": "",
+	"content": "About the AWS RDS PostgreSQL foundation AWS RDS PostgreSQL foundation is essential for anyone who wants to use AWS RDS PostgreSQL to build and run database-driven applications. It is also useful for anyone who wants to learn more about PostgreSQL or relational databases in general.\nAWS RDS PostgreSQL foundation topics include: Introduction IAM Database Authentication Parameter Groups Database Upgrade Clean Up Resources "
+},
+{
+	"uri": "/vi/2-databaseupgrade/2-1-automaticminorupgrade/",
+	"title": "Automatic minor upgrade",
+	"tags": [],
+	"description": "",
+	"content": "When you are creating the db instance you will find a checkbox that will enable automatic minor version upgrades like the following image.\nWe can find out if the option is enabled by running the following command:\naws rds describe-db-instances --db-instance-identifier rdspg-fcj-labs --region $AWSREGION --query \u0026#39;DBInstances[*].AutoMinorVersionUpgrade\u0026#39; Or by going to the RDS console, clicking on the db instance and select the Maintenance \u0026amp; backups tab.\nIn this case, you have not enabled Auto minor version upgrade in the first create database.\nNow, you can enable by click Modify button, then scroll down and select Enabled Auto minor version upgrade\nA PostgreSQL DB instance is automatically upgraded during your maintenance window if the following criteria are met:\nThe DB instance has the Auto minor version upgrade option enabled. The DB instance is running a minor DB engine version that is less than the current automatic upgrade minor version. "
+},
+{
+	"uri": "/vi/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/4-1-automatedbackups/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/4-2-modifybackups/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/4-3-manualsnapshots/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/4-4-restoresnapshot/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/4-5-pointintimerestore/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/4-6-awsbackup/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/4-backuprecovery/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/5-learnmoreaboutpostgresql/4-1-pgbench/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/5-learnmoreaboutpostgresql/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "What is AWS RDS PostgreSQL? AWS RDS PostgreSQL is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.\nBenefits of using AWS RDS PostgreSQL There are many benefits to using AWS RDS PostgreSQL, including:\nEasy setup and management: RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\nScalability: RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\nSecurity: RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\nHigh availability: RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.\n"
+},
+{
+	"uri": "/vi/2-databaseupgrade/",
+	"title": "Database Upgrade",
+	"tags": [],
+	"description": "",
+	"content": "\rThis chapter assumes you have already created an RDS PostgreSQL instance in the first worshop.\nThis lab will take you through the upgrade process of an RDS PostgreSQL instance.\nThis lab contains following tasks: Automatic minor upgrade Upgrading the engine version Validate the upgrade process "
+},
+{
+	"uri": "/vi/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/",
+	"title": "Tạo kết nối đến máy chủ EC2",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
+},
+{
+	"uri": "/vi/3-performancemonitoringandoptimization/3-2-createsomedbactivity/",
+	"title": "Tạo kết nối đến máy chủ EC2",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
+},
+{
+	"uri": "/vi/3-performancemonitoringandoptimization/3-3-reviewingperformance/",
+	"title": "Tạo kết nối đến máy chủ EC2",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
+},
+{
+	"uri": "/vi/3-performancemonitoringandoptimization/3-4-databaseloadtest/",
+	"title": "Tạo kết nối đến máy chủ EC2",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
+},
+{
+	"uri": "/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/",
+	"title": "Tạo kết nối đến máy chủ EC2",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
+},
+{
+	"uri": "/vi/3-performancemonitoringandoptimization/",
+	"title": "Tạo kết nối đến máy chủ EC2",
+	"tags": [],
+	"description": "",
+	"content": "Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.\nNội dung 3.1. Tạo Kết nối đến máy chủ EC2 Public 3.2. Tạo Kết nối đến máy chủ EC2 Private\n"
+},
+{
+	"uri": "/vi/2-databaseupgrade/2-2-upgradingtheengineversion/",
+	"title": "Quản lý session logs",
+	"tags": [],
+	"description": "",
+	"content": "Với Session Manager chúng ta có thể xem được lịch sử các kết nối tới các instance thông qua Session history. Tuy nhiên chúng ta chưa xem được chi tiết các câu lệnh được sử dụng.\n\u0026mdash; title : \u0026ldquo;Upgrading the engine version\u0026rdquo; date : \u0026ldquo;r Sys.Date()\u0026rdquo; weight : 2 chapter : false pre : \u0026quot; 2.2 \u0026quot; Minor version upgrades include only changes that are backward-compatible with existing applications.\nIf your PostgreSQL DB instance is using Read Replicas, you must upgrade all of the read replicas before upgrading the source instance. You could follow the same instructions below, but apply them first to read replicas.\nIf your DB instance is in a Multi-AZ deployment, both the writer and standby replicas are upgraded. Your DB instance might not be available until the upgrade is complete.\nLet\u0026rsquo;s upgrade our database instance now.\nIn the navigation pane, choose Databases, and then choose the DB instance that you want to upgrade.\nChoose Modify. The Modify DB Instance page appears.\nFor DB engine version, choose the new version. Choose Continue and check the summary of modifications. To apply the changes immediately, choose Apply immediately. Choosing this option can cause an outage in some cases.\nOn the confirmation page, review your changes. If they are correct, choose Modify DB Instance to save your changes.\nYou can see your instance being upgraded by going back to the RDS instances page.\n(OPTIONAL) AWS CLI Alternatively you can upgrade the instance using the AWS CLI as shown below:\nAWS CLI\rThe following command upgrades the instance to version 13.11.\nAWSREGION=`aws configure get region`\raws rds modify-db-instance --db-instance-identifier rdspg-fcj-labs --engine-version 15.4 --apply-immediately --region $AWSREGION Trong phần này chúng ta sẽ tiến hành tạo S3 bucket và thực hiện cấu hình lưu trữ các session logs để xem được chi tiết các câu lệnh được sử dụng trong session.\nNội dung: Cập nhật IAM Role Tạo S3 Bucket Tạo S3 Gateway endpoint Cấu hình Session logs "
+},
+{
+	"uri": "/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/",
+	"title": "Quản lý session logs",
+	"tags": [],
+	"description": "",
+	"content": "Với Session Manager chúng ta có thể xem được lịch sử các kết nối tới các instance thông qua Session history. Tuy nhiên chúng ta chưa xem được chi tiết các câu lệnh được sử dụng.\nTrong phần này chúng ta sẽ tiến hành tạo S3 bucket và thực hiện cấu hình lưu trữ các session logs để xem được chi tiết các câu lệnh được sử dụng trong session.\nNội dung: Cập nhật IAM Role Tạo S3 Bucket Tạo S3 Gateway endpoint Cấu hình Session logs "
+},
+{
+	"uri": "/vi/6-cleanup/",
+	"title": "Dọn dẹp tài nguyên  ",
+	"tags": [],
+	"description": "",
+	"content": "Chúng ta sẽ tiến hành các bước sau để xóa các tài nguyên chúng ta đã tạo trong bài thực hành này.\nXóa EC2 instance Truy cập giao diện quản trị dịch vụ EC2 Click Instances. Click chọn cả 2 instance Public Linux Instance và Private Windows Instance. Click Instance state. Click Terminate instance, sau đó click Terminate để xác nhận. Truy cập giao diện quản trị dịch vụ IAM Click Roles. Tại ô tìm kiếm , điền SSM. Click chọn SSM-Role. Click Delete, sau đó điền tên role SSM-Role và click Delete để xóa role. Click Users. Click chọn user Portfwd. Click Delete, sau đó điền tên user Portfwd và click Delete để xóa user. Xóa S3 bucket Truy cập giao diện quản trị dịch vụ System Manager - Session Manager. Click tab Preferences. Click Edit. Kéo chuột xuống dưới. Tại mục S3 logging. Bỏ chọn Enable để tắt tính năng logging. Kéo chuột xuống dưới. Click Save. Truy cập giao diện quản trị dịch vụ S3 Click chọn S3 bucket chúng ta đã tạo cho bài thực hành. ( Ví dụ : lab-fcj-bucket-0001 ) Click Empty. Điền permanently delete, sau đó click Empty để tiến hành xóa object trong bucket. Click Exit. Sau khi xóa hết object trong bucket, click Delete Điền tên S3 bucket, sau đó click Delete bucket để tiến hành xóa S3 bucket. Xóa các VPC Endpoint Truy cập vào giao diện quản trị dịch vụ VPC Click Endpoints. Chọn 4 endpoints chúng ta đã tạo cho bài thực hành bao gồm SSM, SSMMESSAGES, EC2MESSAGES, S3GW. Click Actions. Click Delete VPC endpoints. Tại ô confirm , điền delete. Click Delete để tiến hành xóa các endpoints. Click biểu tượng refresh, kiểm tra tất cả các endpoints đã bị xóa trước khi làm bước tiếp theo. Xóa VPC Truy cập vào giao diện quản trị dịch vụ VPC Click Your VPCs. Click chọn Lab VPC. Click Actions. Click Delete VPC. Tại ô confirm, điền delete để xác nhận, click Delete để thực hiện xóa Lab VPC và các tài nguyên liên quan. "
+},
+{
+	"uri": "/vi/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/vi/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
