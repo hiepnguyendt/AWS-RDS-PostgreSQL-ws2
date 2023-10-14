@@ -1,9 +1,9 @@
 ---
 title : "Learn more about PostgreSQL"
 date :  "`r Sys.Date()`" 
-weight : 5
+weight : 8
 chapter : false
-pre : " <b> 5. </b> "
+pre : " <b> 8. </b> "
 ---
 
 #### Benechmarking PostgreSQL Server
