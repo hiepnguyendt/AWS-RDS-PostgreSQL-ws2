@@ -10,18 +10,15 @@ pre : " <b> 4.2.</b> "
 
 Next we will change the backup window to 22:30 (UTC) and set the backup retention to 3 days.
 
-In the upper right of the database details screen choose the **Modify** button
-
+1. In the upper right of the database details screen choose the **Modify** button
 ![Modify Backups](/images/4/4-2/0.png)
 
-On the **Mondify DB Instance** page, scroll down to the backup section which is under "**Additional Configuraiton**" section. Using the pull down menu change the backup retention period to 3 days. The maximium retention period for automated backups is 35 days. *Manual snapshots can be retained indefinetly*
+2. On the **Mondify DB Instance** page, scroll down to the backup section which is under "**Additional Configuraiton**" section. Using the pull down menu change the backup retention period to 3 days. The maximium retention period for automated backups is 35 days. *Manual snapshots can be retained indefinetly*
 
-Update the backup window to occur at 22:30 (UTC), so plan accordingly
-
+3. Update the backup window to occur at 22:30 (UTC), so plan accordingly
 ![Modify Backups](/images/4/4-2/1.png)
 
-Once you've made the appropriate changes click the continue button. Confirm the modifications on the next screen and choose the *Apply immediately* option. Click **Modify DB Instance**
-
+4. Once you've made the appropriate changes click the continue button. Confirm the modifications on the next screen and choose the *Apply immediately* option. Click **Modify DB Instance**
 ![Modify Backups](/images/4/4-2/2.png)
 
 As the changes are being applied you'll be taken back to the database instance details page. Note: the exact start time of the backup will be chosen at random within the 30 minute window.

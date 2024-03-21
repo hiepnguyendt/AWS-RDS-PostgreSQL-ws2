@@ -24,15 +24,12 @@ For more information, see [Overview of Multi-AZ DB clusters](https://docs.aws.am
 To create a read replica, specify a Multi-AZ DB cluster as the replication source. One of the reader instances of the Multi-AZ DB cluster is always the source of replication, not the writer instance. This condition ensures that the replica is always in sync with the source cluster, even in cases of failover.
 
 1. Find RDS PostgreSQL instance ***rdspg-fcj-labs-read-test*** under the **Databases** menu and click on the radio button in front of the DB Instance. Click on the **Actions** drop down on the right side and choose **Create Read Replica.**
-
 ![outbound](/images/5/4/1.png)
 
 2. For **Settings**, you must provide a DB Instance Identifier (i.e. the name for this instance). 
-
 ![outbound](/images/5/4/2.png)
 
 3. For the **Availability** section, select ***Multi-AZ DB instance*** deployment option.
-
 ![outbound](/images/5/4/3.png)
 
 4. For simplicity, we’ll leave the rest at their defaults. Scroll to the bottom and click **Create read replica**.
@@ -42,7 +39,6 @@ After you click **Create read replica**, you’ll be taken back to the **Databas
 *It will take about 10 minutes for your read replica to be created. Your primary database continues to be available as this happens*
 
 5. Once the Read Replica status is **Available** on the **Databases** page (you may need to use the refresh icon to see the latest Status), click on the new read replica instance.
-
 ![outbound](/images/5/4/5.png)
 
 6. On the detail page for the read replica, first notice the endpoint. The read replica has a different endpoint than your primary instance.
@@ -61,7 +57,6 @@ SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS replica_la
 #### (OPTIONAL) AWS CLI
 
 Alternatively you can promote the read replica using the AWS CLI as shown below:
-
 {{%expand "Code" %}}
 The following command creates the read replica:
 

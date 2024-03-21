@@ -1,80 +1,46 @@
 ---
-title : "Quản lý session logs"
-date :  "`r Sys.Date()`" 
-weight : 4 
-chapter : false
-pre : " <b> 4. </b> "
----
-
-
-Với Session Manager chúng ta có thể xem được lịch sử các kết nối tới các instance thông qua **Session history**. Tuy nhiên chúng ta chưa xem được chi tiết các câu lệnh được sử dụng.
-
-![S3](/images/4.s3/001-s3.png)---
-title : "Upgrading the engine version"
+title : "Nâng cấp engine version"
 date : "`r Sys.Date()`"
 weight : 2
 chapter : false
 pre : " <b> 2.2 </b> "
 ---
 
-Minor version upgrades include only changes that are backward-compatible with existing applications.
+Minor version upgrades chỉ bao gồm những thay đổi tương thích ngược với các ứng dụng hiện có.
 
 {{% notice warning %}}
-If your PostgreSQL DB instance is using Read Replicas, you must upgrade all of the read replicas before upgrading the source instance. You could follow the same instructions below, but apply them first to read replicas.
+Nếu PostgreSQL DB instance của bạn đang sử dụng Read Replicas, bạn phải nâng cấp tất cả các Read Replicas trước khi nâng cấp phiên bản nguồn. Bạn có thể làm theo các hướng dẫn tương tự bên dưới nhưng hãy áp dụng chúng trước để đọc bản sao.
 {{% /notice %}}
 
-If your DB instance is in a Multi-AZ deployment, both the writer and standby replicas are upgraded. Your DB instance might not be available until the upgrade is complete.
+Nếu phiên bản DB của bạn đang triển khai Multi-AZ thì cả bản sao trình ghi và bản sao dự phòng đều được nâng cấp. Phiên bản DB của bạn có thể không khả dụng cho đến khi quá trình nâng cấp hoàn tất.
 
-Let's upgrade our database instance now.
+Hãy nâng cấp db instance của chúng ta ngay bây giờ.
 
-1. In the navigation pane, choose **Databases**, and then choose the **DB instance** that you want to upgrade.
+1. Trong ngăn điều hướng, hãy chọn **Databases**, sau đó chọn **DB instance** mà bạn muốn nâng cấp.
 
-2. Choose **Modify**. The **Modify DB Instance** page appears.
+2. Chọn **Modify**. Trang **Modify DB Instance** sẽ xuất hiện.
+    ![upgrade_engine](/images/2/2-2/1.png)
 
-![upgrade_engine](/images/2/2-2/1.png)
+3. Tại mục **DB engine version**, chọn phiên bản mới.
+    ![upgrade_engine](/images/2/2-2/2.png)
 
-3. For **DB engine version**, choose the new version.
+4. Chọn **Continue** và kiểm tra tóm tắt các sửa đổi.
+    ![upgrade_engine](/images/2/2-2/3.png)
 
-![upgrade_engine](/images/2/2-2/2.png)
+5. Để áp dụng các thay đổi ngay lập tức, hãy chọn **Apply immediately**.
 
-4. Choose Continue and check the summary of modifications.
+6. Trên trang xác nhận, hãy xem lại các thay đổi của bạn. Nếu đúng, hãy chọn **Modify DB Instance** để lưu các thay đổi của bạn.
+    ![upgrade_engine](/images/2/2-2/4.png)
 
-![upgrade_engine](/images/2/2-2/3.png)
+Bạn có thể thấy phiên bản của mình đang được nâng cấp bằng cách quay lại trang RDS instance.
+    ![upgrade_engine](/images/2/2-2/5.png)
 
-5. To apply the changes immediately, choose **Apply immediately**. Choosing this option can cause an outage in some cases.
+#### (Không bắt buộc) AWS CLI
+Ngoài ra, bạn có thể nâng cấp phiên bản bằng cách sử dụng **AWS CLI** như hiển thị bên dưới:
+    {{%expand "AWS CLI" %}}
+    Lệnh sau nâng cấp lên phiên bản 15.4.
+    ```
+    aws rds modify-db-instance --db-instance-identifier <your database name> --engine-version 15.4 --apply-immediately --region <your region>
 
-6. On the confirmation page, review your changes. If they are correct, choose **Modify DB Instance** to save your changes.
-
-![upgrade_engine](/images/2/2-2/4.png)
-
-You can see your instance being upgraded by going back to the RDS instances page.
-
-![upgrade_engine](/images/2/2-2/5.png)
-
-#### (OPTIONAL) AWS CLI
-Alternatively you can upgrade the instance using the **AWS CLI** as shown below:
-
-{{%expand "AWS CLI" %}}
-The following command upgrades the instance to version 13.11.
-```
-AWSREGION=`aws configure get region`
-aws rds modify-db-instance 
-	--db-instance-identifier rdspg-fcj-labs 
-	--engine-version 15.4 
-	--apply-immediately 
-	--region $AWSREGION
-```
-
-{{% /expand%}}
-
-
-Trong phần này chúng ta sẽ tiến hành tạo S3 bucket và thực hiện cấu hình lưu trữ các session logs để xem được chi tiết các câu lệnh được sử dụng trong session.
-
-![port-fwd](/images/arc-log.png) 
-
-### Nội dung:
-
-  - [Cập nhật IAM Role](./4.1-updateiamrole/)
-  - [Tạo **S3 Bucket**](./4.2-creates3bucket/)
-  - [Tạo S3 Gateway endpoint](./4.3-creategwes3)
-  - [Cấu hình **Session logs**](./4.4-configsessionlogs/)
+    ```
+    {{% /expand%}}

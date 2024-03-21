@@ -21,35 +21,34 @@ So far in this section of the lab we have used the **AWS Management Console** fo
 *Amazon RDS keeps track of the latest restorable time for your database. We will lookup this information using the AWS-CLI. To run these commands we will use the Cloud9 enviornment you setup in the prerequisties section. If you haven't done this, return here and complete this step.*
 {{% /notice %}}
 
-Using your EC2 instances, lookup the latest restore time for your database.
+1. Using your EC2 instances, lookup the latest restore time for your database.
 
-```
-aws rds describe-db-instances \
-  --db-instance-identifier rdspg-fcj-labs \
-  --region $AWSREGION \
-  --query 'DBInstances[0].LatestRestorableTime' \
-  --output text
-```
+    ```
+    aws rds describe-db-instances \
+    --db-instance-identifier rdspg-fcj-labs \
+    --region $AWSREGION \
+    --query 'DBInstances[0].LatestRestorableTime' \
+    --output text
+    ```
 
-Sample output below shows a latest restore time of Octorber 6, 2023 at 14:04 UTC
+2. Sample output below shows a latest restore time of Octorber 6, 2023 at 14:04 UTC
 
-```
-2023-10-6T12:04:19Z
-```
+    ```
+    2023-10-6T12:04:19Z
+    ```
 
-![pitr](/images/4/4-5/1.png)
+    ![pitr](/images/4/4-5/1.png)
 
-Using the **AWS-CLI** we can use the following command to restore the database to the latest restorable time we looked up in the prior step. Be sure to update the time.
+3. Using the **AWS-CLI** we can use the following command to restore the database to the latest restorable time we looked up in the prior step. Be sure to update the time.
 
-```
-aws rds restore-db-instance-to-point-in-time \
-  --source-db-instance-identifier rdspg-fcj-labs \
-  --target-db-instance-identifier rdspg-fcj-labs-restore-latest \
-  --restore-time 2023-10-6T12:04:19Z
-```
+    ```
+    aws rds restore-db-instance-to-point-in-time \
+    --source-db-instance-identifier rdspg-fcj-labs \
+    --target-db-instance-identifier rdspg-fcj-labs-restore-latest \
+    --restore-time 2023-10-6T12:04:19Z
+    ```
 
-You will see output similar to:
-
+4. You will see output similar to:
 {{%expand "Output" %}}
 ```
 "DBInstance": {
@@ -167,19 +166,15 @@ You will see output similar to:
 
 {{% /expand%}}
 
-Now, let's return to the RDS Console to check the restoring database. If you look at the details, note all the database specifications (e.g. DB Instance Class, Security Group) match the original database.
-
+5. Now, let's return to the RDS Console to check the restoring database. If you look at the details, note all the database specifications (e.g. DB Instance Class, Security Group) match the original database.
 ![pitr](/images/4/4-5/2.png)
 
-Now we will use the [RDS Console](https://console.aws.amazon.com/rds/home#databases:)  to restore our database to 30 minutes prior. Select the ``rdspg-fcj-labs`` database, choose **Actions**, and select **Restore to point in time.**
-
+6. Now we will use the [RDS Console](https://console.aws.amazon.com/rds/home#databases:)  to restore our database to 30 minutes prior. Select the ``rdspg-fcj-labs`` database, choose **Actions**, and select **Restore to point in time.**
 ![pitr](/images/4/4-5/3.png)
 
-On the **Launch DB Instance** page, choose a custom and select a time 30 minutes prior. Enter a new DB instance identifier (e.g. ``rdspg-fcj-labs-earlier-restore``), leave the remaining information at default values and click on **Restore to point in time**.
-
+7. On the **Launch DB Instance** page, choose a custom and select a time 30 minutes prior. Enter a new DB instance identifier (e.g. ``rdspg-fcj-labs-earlier-restore``), leave the remaining information at default values and click on **Restore to point in time**.
 ![pitr](/images/4/4-5/4.png)
 ![pitr](/images/4/4-5/5.png)
 
-As the restore begins you will be take back to the list of databases and should see your new instance being created.
-
+8. As the restore begins you will be take back to the list of databases and should see your new instance being created.
 ![pitr](/images/4/4-5/6.png)

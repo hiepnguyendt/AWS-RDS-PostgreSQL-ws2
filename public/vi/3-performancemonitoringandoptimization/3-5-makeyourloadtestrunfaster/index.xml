@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tạo kết nối đến máy chủ EC2 on AWS System Manager</title>
+    <title>Kiểm tra khả năng chịu tải nhanh hơn on AWS RDS POSTGRESQL CƠ BẢN</title>
     <link>/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/</link>
-    <description>Recent content in Tạo kết nối đến máy chủ EC2 on AWS System Manager</description>
+    <description>Recent content in Kiểm tra khả năng chịu tải nhanh hơn on AWS RDS POSTGRESQL CƠ BẢN</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language><atom:link href="/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/index.xml" rel="self" type="application/rss+xml" />
+    <language>vi</language>
+    <atom:link href="/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

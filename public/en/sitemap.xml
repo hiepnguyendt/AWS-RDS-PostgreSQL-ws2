@@ -39,18 +39,6 @@
                 href="/2-databaseupgrade/2-1-automaticminorupgrade/"
                 />
   </url><url>
-    <loc>/5-learnmoreaboutpostgresql/4-1-pgbench/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-learnmoreaboutpostgresql/4-1-pgbench/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-learnmoreaboutpostgresql/4-1-pgbench/"
-                />
-  </url><url>
     <loc>/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/</loc>
     <xhtml:link
                 rel="alternate"
@@ -63,6 +51,30 @@
                 href="/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/"
                 />
   </url><url>
+    <loc>/6-parametergroups/6-1-create/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-parametergroups/6-1-create/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-parametergroups/6-1-create/"
+                />
+  </url><url>
+    <loc>/5-scalability/5-1-create/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-scalability/5-1-create/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-scalability/5-1-create/"
+                />
+  </url><url>
     <loc>/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
@@ -73,6 +85,30 @@
                 rel="alternate"
                 hreflang="en"
                 href="/1-introduce/"
+                />
+  </url><url>
+    <loc>/7-highavailability/7-1-setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-highavailability/7-1-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-highavailability/7-1-setup/"
+                />
+  </url><url>
+    <loc>/7-highavailability/7-2-connect/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-highavailability/7-2-connect/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-highavailability/7-2-connect/"
                 />
   </url><url>
     <loc>/3-performancemonitoringandoptimization/3-2-createsomedbactivity/</loc>
@@ -111,6 +147,30 @@
                 href="/4-backuprecovery/4-2-modifybackups/"
                 />
   </url><url>
+    <loc>/6-parametergroups/6-2-modify/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-parametergroups/6-2-modify/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-parametergroups/6-2-modify/"
+                />
+  </url><url>
+    <loc>/5-scalability/5-2-promote/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-scalability/5-2-promote/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-scalability/5-2-promote/"
+                />
+  </url><url>
     <loc>/2-databaseupgrade/2-2-upgradingtheengineversion/</loc>
     <xhtml:link
                 rel="alternate"
@@ -123,6 +183,18 @@
                 href="/2-databaseupgrade/2-2-upgradingtheengineversion/"
                 />
   </url><url>
+    <loc>/6-parametergroups/6-3-apply/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-parametergroups/6-3-apply/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-parametergroups/6-3-apply/"
+                />
+  </url><url>
     <loc>/4-backuprecovery/4-3-manualsnapshots/</loc>
     <xhtml:link
                 rel="alternate"
@@ -133,6 +205,30 @@
                 rel="alternate"
                 hreflang="en"
                 href="/4-backuprecovery/4-3-manualsnapshots/"
+                />
+  </url><url>
+    <loc>/7-highavailability/7-3-perform/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-highavailability/7-3-perform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-highavailability/7-3-perform/"
+                />
+  </url><url>
+    <loc>/5-scalability/5-3-perform/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-scalability/5-3-perform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-scalability/5-3-perform/"
                 />
   </url><url>
     <loc>/3-performancemonitoringandoptimization/</loc>
@@ -195,16 +291,16 @@
                 href="/3-performancemonitoringandoptimization/3-4-databaseloadtest/"
                 />
   </url><url>
-    <loc>/5-learnmoreaboutpostgresql/</loc>
+    <loc>/5-scalability/5-4-migrating/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-learnmoreaboutpostgresql/"
+                href="/vi/5-scalability/5-4-migrating/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-learnmoreaboutpostgresql/"
+                href="/5-scalability/5-4-migrating/"
                 />
   </url><url>
     <loc>/4-backuprecovery/4-4-restoresnapshot/</loc>
@@ -217,6 +313,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="/4-backuprecovery/4-4-restoresnapshot/"
+                />
+  </url><url>
+    <loc>/5-scalability/5-5-multiazdbcluster/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-scalability/5-5-multiazdbcluster/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-scalability/5-5-multiazdbcluster/"
                 />
   </url><url>
     <loc>/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/</loc>
@@ -243,17 +351,16 @@
                 href="/4-backuprecovery/4-5-pointintimerestore/"
                 />
   </url><url>
-    <loc>/6-cleanup/</loc>
-    <lastmod>1970-01-01T07:33:42+07:00</lastmod>
+    <loc>/5-scalability/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/6-cleanup/"
+                href="/vi/5-scalability/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/6-cleanup/"
+                href="/5-scalability/"
                 />
   </url><url>
     <loc>/4-backuprecovery/4-6-awsbackup/</loc>
@@ -266,6 +373,55 @@
                 rel="alternate"
                 hreflang="en"
                 href="/4-backuprecovery/4-6-awsbackup/"
+                />
+  </url><url>
+    <loc>/6-parametergroups/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-parametergroups/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-parametergroups/"
+                />
+  </url><url>
+    <loc>/7-highavailability/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-highavailability/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-highavailability/"
+                />
+  </url><url>
+    <loc>/8-learnmoreaboutpostgresql/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/8-learnmoreaboutpostgresql/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/8-learnmoreaboutpostgresql/"
+                />
+  </url><url>
+    <loc>/9-cleanup/</loc>
+    <lastmod>1970-01-01T07:33:42+07:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/9-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/9-cleanup/"
                 />
   </url><url>
     <loc>/categories/</loc>

@@ -21,17 +21,14 @@ Amazon RDS Multi-AZ deployments provide enhanced availability and durability for
 1. To configure RDS PostgreSQL instance for High availability we need to modify the instance. Select **rdspg-fcj-labs** instance and press the **Modify** button on top.
 
 2. In the **Modify DB Instance: rdspg-fcj-labs** page, scroll down to the **Availability & durability** section and make sure to select **Create a standby instance (recommended for production usage)**.
-
 ![HA](/images/7/1/2.png)
 
 3. Scroll to the bottom and click on **Continue**. On the next window you will notice that the attribute **Multi-AZ** deployment is changed to **Yes** in the New Value column. In the Scheduling of modifications section select **Apply immediately** and click **Modify DB Instance** at the bottom.
-
 ![HA](/images/7/1/3.png)
 
 ***Now the instance will change to **Modifying** status and we need to wait until this operation completes - this usually takes ~5-10 mins.***
 
 4. When status become **Available** again, click on the **rdspg-fcj-labs** instance identifier to review its settings.
-
 ![HA](/images/7/1/4.png)
 
 ***So we configured our RDS PostgreSQL instance for high availability and in the next section we will test this capability.***
@@ -40,7 +37,6 @@ Amazon RDS Multi-AZ deployments provide enhanced availability and durability for
 #### (OPTIONAL) AWS CLI
 
 Alternatively you can convert the instance to Multi-AZ using the AWS CLI as shown below:
-
 {{%expand "Code" %}}
 The following command converts the instance to Multi-AZ.
 

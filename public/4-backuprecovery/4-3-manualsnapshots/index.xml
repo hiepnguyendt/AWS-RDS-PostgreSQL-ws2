@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Manual Snapshots on AWS RDS PostgreSQL</title>
+    <title>Manual Snapshots on AWS RDS POSTGRESQL FOUNDATION</title>
     <link>/4-backuprecovery/4-3-manualsnapshots/</link>
-    <description>Recent content in Manual Snapshots on AWS RDS PostgreSQL</description>
+    <description>Recent content in Manual Snapshots on AWS RDS POSTGRESQL FOUNDATION</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="/4-backuprecovery/4-3-manualsnapshots/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="/4-backuprecovery/4-3-manualsnapshots/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

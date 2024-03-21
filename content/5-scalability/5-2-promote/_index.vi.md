@@ -1,39 +1,47 @@
 ---
-title : "Tạo IAM Role"
-date :  "`r Sys.Date()`" 
-weight : 2 
+title : "Chuyển đổi Read Replica thành instance độc lập"
+date : "`r Sys.Date()`"
+weight : 2
 chapter : false
-pre : " <b> 2.2 </b> "
+pre : " <b> 5.2. </b> "
 ---
 
-### Tạo IAM Role
+Bạn có thể sử dụng Read replica promotion làm sơ đồ khôi phục dữ liệu nếu primary DB instance fail trong trường hợp cấu hình Single-AZ instance . Cách tiếp cận này bổ sung cho việc sao chép đồng bộ, tự động phát hiện lỗi và chuyển đổi dự phòng.
 
-Trong bước này chúng ta sẽ tiến hành tạo IAM Role. Trong IAM Role này sẽ được gán policy **AmazonSSMManagedInstanceCore**, đây là policy cho phép máy chủ EC2 có thể giao tiếp với Session Manager.
+Trong trường hợp xảy ra lỗi, hãy làm như sau:
+- Chuyển đổi read replica.
+- Chuyển lưu lương của database đến promoted DB instance.
+- Tạo một read replica thay thế với DB instance được chuyển đổi làm primary db.
 
-1. Truy cập vào [giao diện quản trị dịch vụ IAM](https://console.aws.amazon.com/iamv2/)
-2. Ở thanh điều hướng bên trái, click  **Roles**.  
+1. Truy cập giao diện Amazon RDS [console](https://console.aws.amazon.com/rds/home#databases) , chọn **rdspg-fcj-labs-read** instance của bạn.
+2. Chúng ta cần kiểm tra xem Replica Lag có gần bằng 0 hay không để giảm thiểu việc mất dữ liệu do các giao dịch bị thiếu từ primary instance.
+![promote](/images/5/2/1.png)
 
-![role](/images/2.prerequisite/038-iamrole.png)
+3. Khi chúng ta chắc chắn rằng độ trễ là tối thiểu, chúng ta quay lại RDS console, chọn replica instance và bắt đầu chuyển đổi: trong menu **Actions**, chọn **Promote**:
+![promote](/images/5/2/2.png)
 
-3. Click **Create role**.  
+4. Trong trang **Settings**, bạn có thể để các cài đặt mặc định như ***Enable automated backups*** và nhấp vào **Promote Read Replica**.
+![promote](/images/5/2/3.png)
 
-![role1](/images/2.prerequisite/039-iamrole.png)
+Quá trình chuyển đổi có thể mất vài phút hoặc lâu hơn để hoàn thành, tùy thuộc vào kích thước của read replica. Replica instance sẽ chuyển sang trạng thái **Modifying** trong thời gian đó.
 
-4. Click **AWS service** và click **EC2**. 
-  + Click **Next: Permissions**.  
+Sau đó, bản sao sẽ trạng thái **available** và được hiển thị dưới dạng instance độc lập.
+![promote](/images/5/2/4.png)
 
-![role1](/images/2.prerequisite/040-iamrole.png)
 
-5. Trong ô Search, điền **AmazonSSMManagedInstanceCore** và ấn phím Enter để tìm kiếm policy này.
-  + Click chọn policy **AmazonSSMManagedInstanceCore**.
-  + Click **Next: Tags.**
+#### (Không bắt buộc) AWS CLI
 
-![createpolicy](/images/2.prerequisite/041-iamrole.png)
+Ngoài ra, bạn có thể chuyển đổi read replica bằng AWS CLI như dưới đây:
+{{%expand "Code" %}}
+Lệnh sau tạo read replica:
 
-6. Click **Next: Review**.
-7. Đặt tên cho Role là **SSM-Role** ở Role Name  
-  + Click **Create Role** \.
+```
+AWSREGION=`aws configure get region`
 
-![namerole](/images/2.prerequisite/042-iamrole.png)
+aws rds promote-read-replica \
+	--db-instance-identifier rdspg-fcj-labs-read \
+	--backup-retention-period 1 \
+	--region $AWSREGION
 
-Tiếp theo chúng ta sẽ thực hiện kết nối đến các máy chủ EC2 chúng ta đã tạo bằng **Session Manager**.
+```
+{{% /expand%}}

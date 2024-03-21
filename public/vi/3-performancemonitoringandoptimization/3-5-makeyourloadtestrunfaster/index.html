@@ -3,30 +3,30 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.118.2">
+    <meta name="generator" content="Hugo 0.123.1">
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tạo kết nối đến máy chủ EC2 :: AWS System Manager</title>
+    <title>Kiểm tra khả năng chịu tải nhanh hơn :: AWS RDS POSTGRESQL CƠ BẢN</title>
 
     
-    <link href="/css/nucleus.css?1696685538" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1696685538" rel="stylesheet">
-    <link href="/css/hybrid.css?1696685538" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1696685538" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1696685538" rel="stylesheet">
-    <link href="/css/auto-complete.css?1696685538" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1696685538" rel="stylesheet">
-    <link href="/css/theme.css?1696685538" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1696685538" rel="stylesheet">
+    <link href="/css/nucleus.css?1711041486" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1711041486" rel="stylesheet">
+    <link href="/css/hybrid.css?1711041486" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1711041486" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1711041486" rel="stylesheet">
+    <link href="/css/auto-complete.css?1711041486" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1711041486" rel="stylesheet">
+    <link href="/css/theme.css?1711041486" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1711041486" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1696685538" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1711041486" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1696685538"></script>
+    <script src="/js/jquery-3.3.1.min.js?1711041486"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1696685538"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1696685538"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1711041486"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1711041486"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
+        var baseurl = "\/\/vi";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1696685538"></script>
+<script type="text/javascript" src="/js/search.js?1711041486"></script>
 
     
   </div>
@@ -82,13 +82,13 @@
  
   
     
-    <li data-nav-id="/vi/1-introduce/" title="Introduction" class="dd-item 
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/1-introduce/">
-           <b> 1. </b> Introduction
+           <b> 1. </b> Giới thiệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -108,285 +108,13 @@
  
   
     
-    <li data-nav-id="/vi/4-backuprecovery/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-backuprecovery/4-1-automatedbackups/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/4-1-automatedbackups/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-backuprecovery/4-2-modifybackups/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/4-2-modifybackups/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-backuprecovery/4-3-manualsnapshots/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/4-3-manualsnapshots/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-backuprecovery/4-4-restoresnapshot/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/4-4-restoresnapshot/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-backuprecovery/4-5-pointintimerestore/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/4-5-pointintimerestore/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/4-backuprecovery/4-6-awsbackup/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/4-backuprecovery/4-6-awsbackup/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/5-learnmoreaboutpostgresql/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/5-learnmoreaboutpostgresql/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/5-learnmoreaboutpostgresql/4-1-pgbench/" title="Introduction" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/5-learnmoreaboutpostgresql/4-1-pgbench/">
-           <b> 1. </b> Introduction
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/2-databaseupgrade/" title="Database Upgrade" class="dd-item 
+    <li data-nav-id="/vi/2-databaseupgrade/" title="Nâng cấp cơ sở dữ liệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-databaseupgrade/">
-           <b> 2. </b> Database Upgrade
+           <b> 2. </b> Nâng cấp cơ sở dữ liệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -411,13 +139,13 @@
  
   
     
-    <li data-nav-id="/vi/2-databaseupgrade/2-1-automaticminorupgrade/" title="Automatic minor upgrade" class="dd-item 
+    <li data-nav-id="/vi/2-databaseupgrade/2-1-automaticminorupgrade/" title="Tự động nâng cấp phiên bản nhỏ" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-databaseupgrade/2-1-automaticminorupgrade/">
-           <b> 2.1 </b> Automatic minor upgrade
+           <b> 2.1 </b> Tự động nâng cấp phiên bản nhỏ
           
             <i class="fas fa-check read-icon"></i>
           
@@ -439,13 +167,13 @@
  
   
     
-    <li data-nav-id="/vi/2-databaseupgrade/2-2-upgradingtheengineversion/" title="Quản lý session logs" class="dd-item 
+    <li data-nav-id="/vi/2-databaseupgrade/2-2-upgradingtheengineversion/" title="Nâng cấp engine version" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-databaseupgrade/2-2-upgradingtheengineversion/">
-           <b> 4. </b> Quản lý session logs
+           <b> 2.2 </b> Nâng cấp engine version
           
             <i class="fas fa-check read-icon"></i>
           
@@ -467,13 +195,13 @@
  
   
     
-    <li data-nav-id="/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/" title="Quản lý session logs" class="dd-item 
+    <li data-nav-id="/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/" title="Kiểm tra quá trình nâng cấp" class="dd-item 
         
         
         
         ">
       <a href="/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/">
-           <b> 4. </b> Quản lý session logs
+           <b> 2.3 </b> Kiểm tra quá trình nâng cấp
           
             <i class="fas fa-check read-icon"></i>
           
@@ -502,13 +230,13 @@
  
   
     
-    <li data-nav-id="/vi/3-performancemonitoringandoptimization/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/3-performancemonitoringandoptimization/" title="Giám sát hiệu suất" class="dd-item 
         parent
         
         
         ">
       <a href="/vi/3-performancemonitoringandoptimization/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
+           <b> 3. </b> Giám sát hiệu suất
           
             <i class="fas fa-check read-icon"></i>
           
@@ -533,13 +261,13 @@
  
   
     
-    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/" title="CloudWatch Logs &amp; Alerts" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-performancemonitoringandoptimization/3-1-cloudwatchlogsalerts/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
+           <b> 3.1 </b> CloudWatch Logs &amp; Alerts
           
             <i class="fas fa-check read-icon"></i>
           
@@ -561,13 +289,13 @@
  
   
     
-    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-2-createsomedbactivity/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-2-createsomedbactivity/" title="Tạo một số hoạt động cho cơ sở dữ liệu " class="dd-item 
         
         
         
         ">
       <a href="/vi/3-performancemonitoringandoptimization/3-2-createsomedbactivity/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
+           <b> 3.2 </b> Tạo một số hoạt động cho cơ sở dữ liệu 
           
             <i class="fas fa-check read-icon"></i>
           
@@ -589,13 +317,13 @@
  
   
     
-    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-3-reviewingperformance/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-3-reviewingperformance/" title="Đánh giá hiệu năng" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-performancemonitoringandoptimization/3-3-reviewingperformance/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
+           <b> 3.3 </b> Đánh giá hiệu năng
           
             <i class="fas fa-check read-icon"></i>
           
@@ -617,13 +345,13 @@
  
   
     
-    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-4-databaseloadtest/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-4-databaseloadtest/" title="Kiểm tra khả năng chịu tải của cơ sở dữ liệu" class="dd-item 
         
         
         
         ">
       <a href="/vi/3-performancemonitoringandoptimization/3-4-databaseloadtest/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
+           <b> 3.4 </b> Kiểm tra khả năng chịu tải của cơ sở dữ liệu
           
             <i class="fas fa-check read-icon"></i>
           
@@ -645,13 +373,13 @@
  
   
     
-    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/" title="Tạo kết nối đến máy chủ EC2" class="dd-item 
+    <li data-nav-id="/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/" title="Kiểm tra khả năng chịu tải nhanh hơn" class="dd-item 
         
         active
         
         ">
       <a href="/vi/3-performancemonitoringandoptimization/3-5-makeyourloadtestrunfaster/">
-           <b> 3. </b> Tạo kết nối đến máy chủ EC2
+           <b> 3.5 </b> Kiểm tra khả năng chịu tải nhanh hơn
           
             <i class="fas fa-check read-icon"></i>
           
@@ -680,13 +408,667 @@
  
   
     
-    <li data-nav-id="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " class="dd-item 
+    <li data-nav-id="/vi/4-backuprecovery/" title="Sao lưu và phục hồi" class="dd-item 
         
         
         
         ">
-      <a href="/vi/6-cleanup/">
-          <b>6. </b>Dọn dẹp tài nguyên  
+      <a href="/vi/4-backuprecovery/">
+           <b> 4. </b> Sao lưu và phục hồi
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-backuprecovery/4-1-automatedbackups/" title="Tự động sao lưu dữ liệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-backuprecovery/4-1-automatedbackups/">
+           <b> 4.1.</b> Tự động sao lưu dữ liệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-backuprecovery/4-2-modifybackups/" title="Điều chỉnh bản sao lưu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-backuprecovery/4-2-modifybackups/">
+           <b> 4.2.</b> Điều chỉnh bản sao lưu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-backuprecovery/4-3-manualsnapshots/" title="Snapshots thủ công" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-backuprecovery/4-3-manualsnapshots/">
+           <b> 4.3. </b> Snapshots thủ công
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-backuprecovery/4-4-restoresnapshot/" title="Khôi phục Snapshot" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-backuprecovery/4-4-restoresnapshot/">
+           <b> 4.4. </b> Khôi phục Snapshot
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-backuprecovery/4-5-pointintimerestore/" title="Point in Time Restore" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-backuprecovery/4-5-pointintimerestore/">
+           <b> 4.5. </b> Point in Time Restore
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-backuprecovery/4-6-awsbackup/" title="AWS Backup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-backuprecovery/4-6-awsbackup/">
+           <b> 4.6. </b> AWS Backup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-scalability/" title="Scalability" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-scalability/">
+           <b> 5. </b> Scalability
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-scalability/5-1-create/" title="Tạo Read-replica để cung cấp khả năng mở rộng đọc" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-scalability/5-1-create/">
+           <b> 5.1. </b> Tạo Read-replica để cung cấp khả năng mở rộng đọc
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-scalability/5-2-promote/" title="Chuyển đổi Read Replica thành instance độc lập" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-scalability/5-2-promote/">
+           <b> 5.2. </b> Chuyển đổi Read Replica thành instance độc lập
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-scalability/5-3-perform/" title="Perform vertical scaling" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-scalability/5-3-perform/">
+           <b> 5.3. </b> Perform vertical scaling
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-scalability/5-4-migrating/" title="Di chuyển sang DB Multi-AZ cluster bằng read replica" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-scalability/5-4-migrating/">
+           <b> 5.4. </b> Di chuyển sang DB Multi-AZ cluster bằng read replica
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-scalability/5-5-multiazdbcluster/" title="Tạo DB instance read replica từ a Multi-AZ DB cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-scalability/5-5-multiazdbcluster/">
+           <b> 5.5. </b> Tạo DB instance read replica từ a Multi-AZ DB cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-parametergroups/" title="Parameter Groups" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-parametergroups/">
+           <b> 6. </b> Parameter Groups
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-parametergroups/6-1-create/" title="Tạo Custom Parameter Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-parametergroups/6-1-create/">
+           <b> 6.1. </b> Tạo Custom Parameter Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-parametergroups/6-2-modify/" title="Điều chỉnh Custom Parameter Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-parametergroups/6-2-modify/">
+           <b> 6.2. </b> Điều chỉnh Custom Parameter Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-parametergroups/6-3-apply/" title="Áp dụng Custom Parameter Group" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-parametergroups/6-3-apply/">
+           <b> 6.3 </b> Áp dụng Custom Parameter Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-highavailability/" title="Tính sẵn sàng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-highavailability/">
+           <b> 7. </b> Tính sẵn sàng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-highavailability/7-1-setup/" title="Thiết lập tính sẵn sàng cao cho RDS PostgreSQL (Multi-AZ)" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-highavailability/7-1-setup/">
+           <b> 7.1. </b> Thiết lập tính sẵn sàng cao cho RDS PostgreSQL (Multi-AZ)
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-highavailability/7-2-connect/" title="Kết nối đến Multi-AZ endpoint" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-highavailability/7-2-connect/">
+           <b> 7.2. </b> Kết nối đến Multi-AZ endpoint
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-highavailability/7-3-perform/" title="Thực hiện chuyển đổi dự phòng để xác minh tính sẵn sàng cao" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-highavailability/7-3-perform/">
+           <b> 7.3 </b> Thực hiện chuyển đổi dự phòng để xác minh tính sẵn sàng cao
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/8-learnmoreaboutpostgresql/" title="Tìm hiểu thêm về PostgreSQL" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/8-learnmoreaboutpostgresql/">
+           <b> 8. </b> Tìm hiểu thêm về PostgreSQL
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/9-cleanup/" title="Xóa tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/9-cleanup/">
+          <b>9. </b>Xóa tài nguyên
           
             <i class="fas fa-check read-icon"></i>
           
@@ -785,15 +1167,14 @@
     <br>
     <br>
         <b> Last Updated </b> <br>
-        <i><font color=orange>30-01-2022</font></i>
+        <i><font color=orange>20-10-2023</font></i>
     </left>
     <left>
         <br>
         <br>
             <b> Team </b> <br>
            
-            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
-                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+            <i> <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
                 <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
                
         </i>
@@ -839,7 +1220,7 @@
             
           
           
-            <a href='/vi/'>AWS RDS PostgreSQL</a> > <a href='/vi/3-performancemonitoringandoptimization/'>Tạo kết nối đến máy chủ EC2</a> > Tạo kết nối đến máy chủ EC2
+            <a href='/vi/'>AWS RDS PostgreSQL</a> > <a href='/vi/3-performancemonitoringandoptimization/'>Giám sát hiệu suất</a> > Kiểm tra khả năng chịu tải nhanh hơn
           
         
           
@@ -856,7 +1237,7 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#nôi-dung">Nội dung</a></li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -876,7 +1257,7 @@
           
             <h1>
               
-              Tạo kết nối đến máy chủ EC2
+              Kiểm tra khả năng chịu tải nhanh hơn
             </h1>
           
 
@@ -884,10 +1265,120 @@
 
 
 
-	<p>Trong bước này, chúng ta sẽ thực hiện tạo kết nối đến các máy chủ EC2 của chúng ta, nằm trong cả public và private subnet.</p>
-<h3 id="nôi-dung">Nội dung</h3>
-<p>3.1. <a href="3.1-public-instance/">Tạo Kết nối đến máy chủ EC2 Public</a> <br>
-3.2. <a href="3.2-private-instance/">Tạo Kết nối đến máy chủ EC2 Private</a></p>
+	<ul>
+<li>
+<p>Trong bài tập này, chúng tôi sẽ chỉ cho bạn cách làm cho khối lượng giao dịch của bạn nhanh hơn. Nhanh hơn có nghĩa là chúng tôi muốn hoàn thành nhiều giao dịch hơn trong cùng một khoảng thời gian. Để làm như vậy, chúng ta sẽ cần xác định các điểm nghẽn và khắc phục chúng.</p>
+</li>
+<li>
+<p>Trước tiên, hãy xác định số lượng giao dịch mỗi giây mà chúng ta đã thực hiện. Quay về với giao diện terminal của <strong>MobaXterm</strong> và xem số lượng giao dịch mỗi giây (<strong>tps transactions per second</strong>) khi sử dụng <strong>pgbench</strong> để kiểm tra khả năng với 200 client.
+<img alt="load test faster" src="/images/3/3-5/1.png"></p>
+</li>
+<li>
+<p>Trong hai dòng cuối cùng của ảnh chụp màn hình ở trên, chúng ta thấy rằng khối lượng giao dịch của chúng ta có thể thực hiện khoảng 578 giao dịch mỗi giây (tps) trên db.t3.medium instance. Nếu môi trường lab của bạn sử dụng loại phiên bản khác, chẳng hạn như db.t3.large, bạn có thể thấy một giá trị khác.</p>
+</li>
+<li>
+<p>Bây giờ, hãy phân tích hiệu suất của chúng ta. Nói chung, bạn có thể xem xét hiệu suất của cơ sở dữ liệu ở mức độ vi mô và vĩ mô. Ở cấp độ vi mô, bạn muốn sẽ xem xét các câu lệnh SQL và xác định xem có bất kỳ câu lệnh SQL nào có thể được điều chỉnh hay không. Performance Insights là một công cụ tốt cho loại phân tích cấp vi mô này.</p>
+</li>
+<li>
+<p>Ở cấp độ vĩ mô, bạn muốn xem xét các số liệu về hiệu năng cho toàn bộ hệ thống. Bạn làm điều này để xem liệu có bất kỳ tài nguyên quan trọng nào (chẳng hạn như CPU, Bộ nhớ hoặc IO) đang bị quá tải và trở thành nút thắt cổ chai hay không. Các monitoring metrics trong RDS console (cũng có sẵn trong AWS CloudWatch) là công cụ tốt cho việc này.</p>
+</li>
+<li>
+<p>Hãy bắt đầu bằng cách bắt đầu ở cấp độ vi mô và xem xét khối lượng công việc của chúng ta trong Performance Insights. Chúng ta có thể nhận thấy rằng sự kiện chờ hàng đầu của chúng ta là <strong>WALWriteLock</strong> và <strong>DataFileRead</strong>. Chúng tôi đã xác định đây là sự kiện chờ đợi hàng đầu vì chúng tôi có thể thấy trực quan rằng nó chiếm nhiều diện tích nhất trong biểu đồ. Nói cách khác, nó có số phiên chờ đợi sự kiện này nhiều nhất (trung bình 100 phiên cơ sở dữ liệu đang chờ sự kiện đó ). Chúng ta cũng có thể xác định rằng Câu lệnh SQL được liên kết với <strong>WALWriteLock</strong> là <strong>END</strong>, trong PostgreSQL là câu lệnh closes/commits.</p>
+<p><em>Counter metrics</em>
+<img alt="data load test" src="/images/3/3-4/3.png"></p>
+<p><em>Database load</em>
+<img alt="data load test" src="/images/3/3-4/4.png"></p>
+<p><em>Top SQL</em>
+<img alt="data load test" src="/images/3/3-4/5.png"></p>
+</li>
+<li>
+<p>Có thể bạn chưa quen với sự kiện chờ <strong>WALWriteLock</strong>. WAL là <strong>Write Ahead Log</strong>, còn được gọi là nhật ký giao dịch. Các tệp này chứa bản ghi liên tục về COMMITs và COMMITs không thể quay lại máy khách cho đến khi thông tin WAL được ghi an toàn vào đĩa.</p>
+</li>
+<li>
+<p>Trong trường hợp của chúng ta, có vẻ như một số lượng lớn sessions đang sao lưu trên WALWriteLock và các phiên này đang chờ đến khi giao dịch của họ kết thúc (commits). Nói cách khác, hệ thống dường như không thể ghi các commits vào disk đủ nhanh.</p>
+</li>
+<li>
+<p>Bây giờ chúng ta hãy nhìn vào cấp độ vĩ mô. Để làm như vậy, hãy quay lại RDS console và chuyển đến <strong>Monitoring</strong> tab cho cơ sở dữ liệu của bạn. Điều này sẽ cho chúng ta thấy một số, số liệu trên toàn hệ thống. Đây là một ví dụ về những gì bạn sẽ thấy:
+<img alt="load test faster" src="/images/3/3-5/3.png"></p>
+</li>
+<li>
+<p>Trong biểu đồ trên, hãy lưu ý rằng <strong>CPUUtilization</strong> không cao mặc dù chúng tôi có 200 kết nối đồng thời trên 2 vCPU (db.t3.medium). Vì vậy, chúng ta có thể nói rằng có vẻ như CPU không phải là điểm nghẽn cổ chai.</p>
+</li>
+<li>
+<p>Tiếp theo hãy xem xét một số số liệu I/O. Trong biểu đồ trên, hãy lưu ý rằng các waiting I/O requests của DiskQueueDepth đã trở nên lớn hơn. Ngoài ra, hãy lưu ý rằng IOPS ghi của chúng ta gần bằng 1000. Nếu bạn nhớ từ khi tạo cơ sở dữ liệu, chúng tôi đã quyết định sử dụng bộ lưu trữ Provisioned IOPS (io1) với 1000 IOPS. Vì vậy, có vẻ như chúng tôi có thể sắp đạt đến giới hạn hiện tại của dung lượng lưu trữ được phân bổ. Để xác nhận, bạn cũng có thể xem qua các biểu đồ và tìm biểu đồ Write Latency:</p>
+<p><img alt="load test faster" src="/images/3/3-5/4.png"></p>
+</li>
+<li>
+<p>Trong biểu đồ WriteLatency, chúng ta có thể thấy rằng độ trễ ghi rất cao trong khối lượng công việc. Nó sẽ phù hợp với giả thuyết của chúng tôi rằng chúng tôi đang đạt đến giới hạn của bộ nhớ được định cấu hình (1000 IOPS), điều này khiến độ sâu hàng đợi và độ trễ ghi tăng lên, đồng thời khiến việc ghi vào WAL mất nhiều thời gian hơn. Ngày càng có nhiều phiên cơ sở dữ liệu phải chờ lâu hơn để WAL được ghi khi họ thực hiện giao dịch của mình.</p>
+</li>
+<li>
+<p>Vì vậy, có vẻ như chúng ta có thể làm cho khối lượng công việc giao dịch của mình chạy nhanh hơn nếu tăng IOPS. Tin tốt là bộ nhớ mà RDS sử dụng có tính linh hoạt. Bạn có thể tăng/giảm cấu hình IOPS trong khi cơ sở dữ liệu chạy. Bạn thậm chí có thể thay đổi Loại lưu trữ (từ io1 sang gp2 hoặc ngược lại) trong khi cơ sở dữ liệu chạy nếu bạn muốn.</p>
+</li>
+<li>
+<p>Hãy sửa đổi cơ sở dữ liệu của chúng ta và chỉ định 3500 IOPS (tăng từ giá trị hiện tại là 1000). Để làm như vậy, hãy nhấp vào nút <strong>Modify</strong> ở đầu màn hình. Trên màn hình sửa đổi, thay đổi trường <strong>Provisioned IOPS</strong> thành 3500.</p>
+<p><img alt="load test faster" src="/images/3/3-5/5.png"></p>
+</li>
+<li>
+<p>Sau đó kéo xuống cuối trang sửa đổi và nhấp vào <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>Trên trang <strong>Summary and Scheduling</strong>, hãy nhớ chọn <strong>Apply Immediately</strong>. Sau đó nhấp vào <strong>Modify DB Instance</strong>.
+<img alt="load test faster" src="/images/3/3-5/6.png"></p>
+</li>
+<li>
+<p>Tại thời điểm này, bạn hãy truy cập <a href="https://console.aws.amazon.com/rds/home#databases:">Databases List</a>. Điều thú vị ở trang <strong>Databases List</strong> là bạn có thể dễ dàng làm mới trang để có thể theo dõi những thay đổi trong <strong>Status</strong>.
+<img alt="load test faster" src="/images/3/3-5/7.png"></p>
+</li>
+<li>
+<p>Điều bạn muốn làm là xem <strong>Status</strong> trong khi RDS thay đổi IOPS. Cơ sở dữ liệu sẽ vẫn mở trong khi điều này xảy ra. Tuy nhiên, chúng tôi muốn đợi thay đổi hoàn tất trước khi chạy lại khối lượng công việc của mình. Quá trình này sẽ mất 10-15 phút. Đầu tiên, bạn sẽ thấy trạng thái có nội dung Modifying, sau đó sẽ có nội dung <strong>Storage Optimization</strong> khi hệ thống lưu trữ phụ trợ tự tối ưu hóa để cung cấp cấu hình IOPS mới.</p>
+</li>
+</ul>
+<h4 id="không-bắt-buộc-aws-cli">(Không bắt buộc) AWS CLI</h4>
+<ul>
+<li>
+<p>Ngoài ra, bạn có thể sửa đổi IOPS của db instance bằng AWS CLI như dưới đây:
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	Command
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <pre><code>Lệnh sau sửa đổi IOPS của instance.
+```
+aws rds modify-db-instance --db-instance-identifier rds-pg-labs --iops 3500 --allocated-storage 100 --apply-immediately --region &lt; your region &gt;
+```
+</code></pre>
+
+    </div>
+</div></p>
+</li>
+<li>
+<p>Sau khi trạng thái trở về Available (hoặc nếu bạn thiếu kiên nhẫn, hãy đợi ít nhất cho đến khi thông báo “Storage Optimization”), sau đó quay lại Cloud9 và chạy lại khối lượng công việc tương tự như trước:</p>
+<pre tabindex="0"><code>
+pgbench --host &lt;your database endpoint&gt;--username masteruser --protocol=prepared -P 30 --time=300 --client=200 --jobs=200 &lt;your dabase name&gt;
+</code></pre></li>
+<li>
+<p>Bây giờ bạn sẽ thấy benchmark chạy nhanh hơn. Ví dụ: bây giờ bạn sẽ thấy khoảng 1300 giao dịch mỗi giây (tăng từ 578 giao dịch mỗi giây trước đó).</p>
+<p><img alt="load test faster" src="/images/3/3-5/8.png"></p>
+</li>
+<li>
+<p>Vì vậy, bằng cách tăng dung lượng <strong>IOPS</strong> của bộ lưu trữ, bạn có thể làm cho việc kiểm tra chạy nhanh hơn.
+
+<div class="notices tip" ><p>Bạn không bị giới hạn sử dụng số liệu RDS/CloudWatch và Performance Insight. Bạn có thể mở rộng các chỉ số CloudWatch mặc định bằng <a href="https://github.com/awslabs/amazon-aurora-postgres-monitoring">số liệu tùy chỉnh</a>. Bạn có thể sử dụng các công cụ PostgreSQL khác như Bảng điều khiển được tích hợp trong pgAdmin. Hoặc một số DBA PostgreSQL sử dụng công cụ pgBadger để phân tích hiệu suất cơ sở dữ liệu. Để tìm hiểu về cách sử dụng pgBadger với RDS PostgreSQL, hãy đọc <a href="https://aws.amazon.com/blogs/database/optimizing-and-tuning-queries-in-amazon-rds-postgresql-based-on-native-and-external-tools/">tài liệu này</a> .</p>
+</div>
+
+
+<div class="notices note" ><p>Trong bài thực hành này, chúng tôi đang sử dụng instance type <strong>db.t3.mdedium</strong>. Vì vậy, chúng ta cũng có thể thấy một số lượng lớn các sự kiện chờ đợi cho <strong>DataFileRead</strong>. Sự kiện chờ <strong>DataFileRead</strong> có thể cho biết rằng loại phiên bản của bạn có thể không có đủ bộ nhớ để đưa tập dữ liệu đang hoạt động vào bộ đệm dùng chung của cơ sở dữ liệu. Vì vậy, bạn có thể cân nhắc chuyển sang loại phiên bản có nhiều bộ nhớ hơn như một cách khả thi để giải quyết tình trạng chờ đợi <strong>DataFileRead</strong>.</p>
+</div>
+</p>
+</li>
+</ul>
 
 
 
@@ -1005,154 +1496,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1266,6 +1609,366 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1287,10 +1990,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/3-performancemonitoringandoptimization/3-4-databaseloadtest/" title="Tạo kết nối đến máy chủ EC2"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/vi/3-performancemonitoringandoptimization/3-4-databaseloadtest/" title="Kiểm tra khả năng chịu tải của cơ sở dữ liệu"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/6-cleanup/" title="Dọn dẹp tài nguyên  " style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/vi/4-backuprecovery/" title="Sao lưu và phục hồi" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1300,19 +2003,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1696685538"></script>
-    <script src="/js/perfect-scrollbar.min.js?1696685538"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1696685538"></script>
-    <script src="/js/jquery.sticky.js?1696685538"></script>
-    <script src="/js/featherlight.min.js?1696685538"></script>
-    <script src="/js/highlight.pack.js?1696685538"></script>
+    <script src="/js/clipboard.min.js?1711041486"></script>
+    <script src="/js/perfect-scrollbar.min.js?1711041486"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1711041486"></script>
+    <script src="/js/jquery.sticky.js?1711041486"></script>
+    <script src="/js/featherlight.min.js?1711041486"></script>
+    <script src="/js/highlight.pack.js?1711041486"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1696685538"></script>
-    <script src="/js/learn.js?1696685538"></script>
-    <script src="/js/hugo-learn.js?1696685538"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1711041486"></script>
+    <script src="/js/learn.js?1711041486"></script>
+    <script src="/js/hugo-learn.js?1711041486"></script>
 
-    <link href="/mermaid/mermaid.css?1696685538" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1696685538"></script>
+    <link href="/mermaid/mermaid.css?1711041486" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1711041486"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

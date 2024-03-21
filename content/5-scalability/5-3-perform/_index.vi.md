@@ -1,23 +1,32 @@
 ---
-title : "Các bước chuẩn bị"
-date :  "`r Sys.Date()`" 
-weight : 2 
+title : "Perform vertical scaling"
+date : "`r Sys.Date()`"
+weight : 3
 chapter : false
-pre : " <b> 2. </b> "
+pre : " <b> 5.3. </b> "
 ---
 
-{{% notice info %}}
-Bạn cần tạo sẵn 1 Linux instance thuộc public subnet và 1 Window instance thuộc private subnet để thực hiện bài thực hành này.
-{{% /notice %}}
+1. Truy cập giao diện [Amazon RDS console](https://console.aws.amazon.com/rds/home).
 
-Để tìm hiểu cách tạo các EC2 instance và VPC với public/private subnet các bạn có thể tham khảo bài lab :
-  - [Giới thiệu về Amazon EC2](https://000004.awsstudygroup.com/vi/)
-  - [Làm việc với Amazon VPC](https://000003.awsstudygroup.com/vi/)
+2. Chọn **rdspg-fcj-labs** instance và click **Modify**.
 
-Để sử dụng System Manager để quản lý window instance nói riêng và các instance nói chung của chúng ta trên AWS, ta cần phải cung cấp quyền cho các instance của chúng ta có thể làm việc với System Manager.Trong phần chuẩn bị này, chúng ta cũng sẽ tiến hành tạo IAM Role để cấp quyền cho các instance có thể làm việc với System Manager.
+3. Tại trang **Modify DB Instance** - Chọn **DB instance class or DB instance size:** thích hợp. Sau đó click **Continue**
 
-### Nội dung
-  - [Chuẩn bị VPC và EC2 Instance](2.1-createec2/)
-  - [Tạo IAM Role](2.2-createiamrole/)
+4. Tại **Summary of modifications** chú ý instance type thay đổi và chọn **Apply immediately** để áp dụng các thay đổi và nhấp vào **Modify DB instance**.
 
-  
+5. Instacnce sẽ bắt đầu quá trình nâng cấp DB instance, quá trình này có thể mất 10-15 phút, sau đó bạn sẽ thấy trong RDS console instance đã cập nhật:
+
+#### (Không bắt buộc) AWS CLI
+Ngoài ra, bạn có thể mở rộng quy mô instance bằng AWS CLI như dưới đây:
+{{%expand "Code" %}}
+Lệnh sau thay đổi instance class của instance.
+```
+AWSREGION=`aws configure get region`
+
+aws rds modify-db-instance \
+	--db-instance-identifier rds-pg-labs \
+	--db-instance-class db.t3.large \
+	--apply-immediately \
+	--region $AWSREGION
+```
+{{% /expand%}}

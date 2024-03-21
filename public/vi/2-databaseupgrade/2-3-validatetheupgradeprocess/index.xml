@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Quản lý session logs on AWS System Manager</title>
+    <title>Kiểm tra quá trình nâng cấp on AWS RDS POSTGRESQL CƠ BẢN</title>
     <link>/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/</link>
-    <description>Recent content in Quản lý session logs on AWS System Manager</description>
+    <description>Recent content in Kiểm tra quá trình nâng cấp on AWS RDS POSTGRESQL CƠ BẢN</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>vi</language><atom:link href="/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/index.xml" rel="self" type="application/rss+xml" />
+    <language>vi</language>
+    <atom:link href="/vi/2-databaseupgrade/2-3-validatetheupgradeprocess/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

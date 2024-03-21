@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tạo Read-replica để cung cấp khả năng mở rộng đọc on AWS RDS POSTGRESQL CƠ BẢN</title>
+    <link>/vi/5-scalability/5-1-create/</link>
+    <description>Recent content in Tạo Read-replica để cung cấp khả năng mở rộng đọc on AWS RDS POSTGRESQL CƠ BẢN</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>vi</language>
+    <atom:link href="/vi/5-scalability/5-1-create/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

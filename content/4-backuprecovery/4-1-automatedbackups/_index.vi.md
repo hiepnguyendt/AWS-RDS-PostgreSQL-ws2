@@ -1,19 +1,48 @@
 ---
-title : "Introduction"
+title : "Tự động sao lưu dữ liệu"
 date :  "`r Sys.Date()`" 
-weight : 1 
+weight : 1
 chapter : false
-pre : " <b> 1. </b> "
+pre : " <b> 4.1.</b> "
 ---
-#### What is AWS RDS PostgreSQL?
+#### Xem lại bản sao lưu
 
-**AWS RDS PostgreSQL** is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.
+Hãy bắt đầu bằng cách xem các bản sao lưu của cơ sở dữ liệu bạn đã tạo. Bản sao lưu cơ sở dữ liệu đầy đủ được thực hiện ngay sau khi tạo cơ sở dữ liệu.
 
-#### Benefits of using AWS RDS PostgreSQL
+Truy cập giao diện [Amazon RDS Console](https://console.aws.amazon.com/rds/home#databases:)
+Click on **rdspg-fcj-labs** or the instance name you specified to reveal its details. Then select the **Maintenance & backups** tab.
+    ![automated backups](/images/4/4-1/0.png)
 
-There are many benefits to using AWS RDS PostgreSQL, including:
+Kéo xuống phần sao lưu tự động và xem lại chi tiết. Lưu ý sao lưu cơ sở dữ liệu và thời gian khôi phục mới nhất có thể. Nhìn vào các snapshots có sẵn cho cơ sở dữ liệu. Snapshots tự động từ bản sao lưu cơ sở dữ liệu ban đầu đó cũng xuất hiện.
+    ![automated backups](/images/4/4-1/1.png)
 
-**Easy setup and management:** RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\
-**Scalability:** RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\
-**Security:** RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\
-**High availability:** RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.
+#### (Không bắt buộc) AWS CLI
+Ngoài ra, bạn có thể xem các bản sao lưu của phiên bản bằng AWS CLI như dưới đây:
+{{%expand "AWS CLI" %}}
+```
+AWSREGION=`aws configure get region`
+
+# List the automated backups for the instance
+
+aws rds describe-db-instance-automated-backups \
+	--db-instance-identifier rdspg-fcj-labs \
+	--region $AWSREGION
+
+# List the snapshots for the instance
+
+aws rds describe-db-snapshots \
+	--db-instance-identifier rdspg-fcj-labs \
+	--region $AWSREGION
+
+# Check the Latest Restorable Time (LRT) of the instance
+
+aws rds describe-db-instances \
+	--db-instance-identifier rdspg-fcj-labs \
+	--query 'DBInstances[].LatestRestorableTime' \
+	--region $AWSREGION \
+	--output text
+
+
+```
+
+{{% /expand%}}

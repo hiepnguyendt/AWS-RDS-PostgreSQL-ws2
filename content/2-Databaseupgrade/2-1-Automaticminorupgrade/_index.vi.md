@@ -1,24 +1,19 @@
 ---
-title : "Automatic minor upgrade"
+title : "Tự động nâng cấp phiên bản nhỏ"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
 pre : " <b> 2.1 </b> "
 ---
 
-When you are creating the db instance you will find a checkbox that will enable automatic minor version upgrades like the following image.
+Khi tạo db instance, bạn sẽ thấy checkbox cho phép bật tính năng tự động nâng cấp phiên bản nhỏ như hình ảnh sau.
+      ![auto_minor](/images/2/2-1/1.png)
 
-![auto_minor](/images/2/2-1/1.png)
-
-We can find out if the option is enabled by running the following command:
-
-```
-aws rds describe-db-instances 
-       --db-instance-identifier rdspg-fcj-labs 
-      --region $AWSREGION 
-      --query 'DBInstances[*].AutoMinorVersionUpgrade'
-```
-
+Chúng ta có thể tìm hiểu xem tùy chọn này có được bật hay không bằng cách chạy lệnh sau:
+- Thay thế cơ sở dữ liệu và khu vực của bạn
+ ```
+      -query 'DBInstances[*].AutoMinorVersionUpgrade'
+ ```
 ![auto_minor](/images/2/2-1/2.png)
 
 Or by going to the **RDS console**, clicking on the db instance and select the **Maintenance & backups** tab.

@@ -1,19 +1,42 @@
 ---
-title : "Introduction"
+title : "Snapshots thủ công"
 date :  "`r Sys.Date()`" 
-weight : 1 
+weight : 3
 chapter : false
-pre : " <b> 1. </b> "
+pre : " <b> 4.3. </b> "
 ---
-#### What is AWS RDS PostgreSQL?
 
-**AWS RDS PostgreSQL** is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.
 
-#### Benefits of using AWS RDS PostgreSQL
+#### Thực hiện sao lưu thủ công cơ sở dữ liệu của bạn.
 
-There are many benefits to using AWS RDS PostgreSQL, including:
+Ngoài các bản sao lưu cơ sở dữ liệu tự động, đôi khi bạn muốn thực hiện một bản sao lưu cụ thể của cơ sở dữ liệu, ngay trước khi phát hành phần mềm lớn hoặc để làm mới môi trường tổ chức của mình. Với AWS RDS, những bản sao lưu này được gọi là snapshots thủ công. RDS tạo storage volume snapshot của DB instance, sao lưu toàn bộ DB instance chứ không chỉ các cơ sở dữ liệu riêng lẻ. Chúng được lưu trữ trong Amazon S3 nhưng chúng không nằm trong vùng lưu trữ mà khách hàng có thể truy cập.
 
-**Easy setup and management:** RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\
-**Scalability:** RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\
-**Security:** RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\
-**High availability:** RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.
+1. Với instance của bạn được chọn từ [danh sách cơ sở dữ liệu](https://console.aws.amazon.com/rds/home#databases:). Chọn **Actions** -> **Take Snapshot**
+    ![manual snapshot](/images/4/4-3/1.png)
+
+2. Trên màn hình **Take DB Snapshot**, nhập tên cho snapshot của bạn (ví dụ: ``manual-snapshot-rdspg-fcj-labs``) và nhấp vào **Take Snapshot**.
+    ![manual snapshot](/images/4/4-3/2.png)
+
+3. Khi tạo snapshot, bạn sẽ được đưa đến trang **Snapshots** trong AWS RDS Console. Hãy đi tới [danh sách cơ sở dữ liệu](https://console.aws.amazon.com/rds/home#databases:) và xem trạng thái của instance. Bạn sẽ thấy nó sao lưu.
+    ![manual snapshot](/images/4/4-3/3.png)
+
+4. Sau khi trạng thái cơ sở dữ liệu trở về **available** hãy quay lại [danh sách snapshots](https://console.aws.amazon.com/rds/home#snapshots-list:) . Xem lại tất cả các snapshots.
+    ![manual snapshot](/images/4/4-3/4.png)
+
+#### (Không bắt buộc) AWS CLI
+Ngoài ra, bạn có thể snapshot thủ công instance bằng AWS CLI như dưới đây:
+
+{{%expand "AWS CLI" %}}
+Lệnh sau sẽ snapshot thủ công instance.
+```
+AWSREGION=`aws configure get region`
+
+aws rds create-db-snapshot \
+	--db-instance-identifier rdspg-fcj-labs \
+	--db-snapshot-identifier manual-snapshot-rdspg-fcj-labs \
+	--region $AWSREGION
+
+
+```
+
+{{% /expand%}}

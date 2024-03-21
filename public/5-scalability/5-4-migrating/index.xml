@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Migrating to a Multi-AZ DB cluster using a read replica on AWS RDS POSTGRESQL FOUNDATION</title>
+    <link>/5-scalability/5-4-migrating/</link>
+    <description>Recent content in Migrating to a Multi-AZ DB cluster using a read replica on AWS RDS POSTGRESQL FOUNDATION</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="/5-scalability/5-4-migrating/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

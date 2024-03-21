@@ -17,22 +17,18 @@ Amazon RDS creates a second DB instance using a snapshot of the source DB instan
 To migrate a Single-AZ deployment or Multi-AZ DB instance deployment to a Multi-AZ DB cluster deployment with reduced downtime, you can create a Multi-AZ DB cluster read replica.
 
 1. Find RDS PostgreSQL instance ***rdspg-fcj-labs*** under the **Databases** menu and click on the radio button in front of the DB Instance. Click on the Actions drop down on the right side and choose **Create Read Replica.**
-
 ![migrating](/images/5/3/1.png)
 
 2. For **Settings**, you must provide a DB Instance Identifier (i.e. the name for this instance).
-
 ![migrating](/images/5/3/2.png)
 
 3. For the **Availability** section, select ***Multi-AZ DB Cluster*** - new deployment option.
-
 ![migrating](/images/5/3/4.png)
 
 
 4. For simplicity, we’ll leave the rest at their defaults. Scroll to the bottom and click **Create read replica**
 
 After you click **Create read replica**, you’ll be taken back to the **Databases** page. Click the refresh icon to refresh the page and you should see the read replica being created.
-
 ![migrating](/images/5/3/5.png)
 
 *It will take about 10 minutes for your read replica to be created. Your primary database continues to be available as this happens.*
@@ -46,7 +42,6 @@ After you click **Create read replica**, you’ll be taken back to the **Databas
 ![migrating](/images/5/3/7.png)
 
 7. Next, scroll down to view the replication details. You can see that our primary instance is replicating to our read replica instance.
-
 ![migrating](/images/5/3/8.png)
 
 You can then connect to the read replica using its endpoint and the same username and password as the source instance. For example, connect and execute the following query to check the replication lag between the source and the replica:
@@ -61,7 +56,6 @@ SELECT extract(epoch from now() - pg_last_xact_replay_timestamp()) AS replica_la
 ***You can also promote this Multi-AZ read replica cluster to a stand-alone cluster. We will do that in the next step.***
 
 8. Click on **Actions**, and select **Promote** to detach and promote the ***rdspg-fcj-labs-read-test*** Multi-AZ DB Cluster by selecting **Promote read replica**
-
 ![migrating](/images/5/3/10.png)
 
 It will take about 1-2 minutes for your read replica to be detached and promoted as an independent RDS DB Cluster with Multi-AZ DB Cluster deployment option.
@@ -73,7 +67,6 @@ At this point, you have successfully migrated your RDS PostgreSQL instance with 
 #### (OPTIONAL) AWS CLI
 
 Alternatively you can promote the read replica using the AWS CLI as shown below:
-
 {{%expand "Code" %}}
 The following command creates the read replica:
 

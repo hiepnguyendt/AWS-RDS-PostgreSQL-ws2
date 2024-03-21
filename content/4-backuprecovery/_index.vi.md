@@ -1,19 +1,18 @@
 ---
-title : "Introduction"
+title : "Sao lưu và phục hồi"
 date :  "`r Sys.Date()`" 
-weight : 1 
+weight : 4
 chapter : false
-pre : " <b> 1. </b> "
+pre : " <b> 4. </b> "
 ---
-#### What is AWS RDS PostgreSQL?
 
-**AWS RDS PostgreSQL** is a managed database service that makes it easy to set up, operate, and scale PostgreSQL databases in the cloud. RDS PostgreSQL handles all of the tasks involved in managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores.
+Understanding how your database is backed up and options for recovery are critically important before moving database workloads to the cloud. In this lab will take a look at the backup and recovery functions available in RDS for PostgreSQL.
 
-#### Benefits of using AWS RDS PostgreSQL
+#### This lab contains following tasks:
+1. [Tự động sao lưu dữ liệu](4-1-automatedbackups/)
+2. [Điều chỉnh bản sao lưu](4-2-modifybackups/)
+3. [Snapshots thủ công](4-3-manualsnapshots/)
+4. [Khôi phục Snapshot](4-4-restoresnapshot/)
+5. [Point in Time Restore](4-5-pointintimerestore/)
+6. [AWS Backup](4-6-awsbackup/)
 
-There are many benefits to using AWS RDS PostgreSQL, including:
-
-**Easy setup and management:** RDS PostgreSQL takes care of all the tasks involved in setting up and managing a PostgreSQL database, such as provisioning the hardware, configuring the database, and managing backups and restores. This frees you up to focus on building and maintaining your applications.\
-**Scalability:** RDS PostgreSQL is highly scalable, making it easy to add or remove resources as needed. This is important for applications that need to handle spikes in traffic or that need to scale to meet growing demand.\
-**Security:** RDS PostgreSQL provides a number of security features to protect your data, such as encryption at rest and in transit, access control lists, and auditing. This gives you the peace of mind knowing that your data is safe and secure.\
-**High availability:** RDS PostgreSQL offers high availability, so you can be confident that your database will be available when you need it. RDS PostgreSQL provides features such as read replicas and automatic failover to ensure that your database is always available.

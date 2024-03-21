@@ -12,7 +12,6 @@ pre : " <b> 7.2. </b> "
 
 
 1. In the terminal window EC2 instance, enter and run these commands to showcase connection to the database at 10-second intervals:
-
 ```
 while true;
 do
@@ -24,7 +23,6 @@ done
 ```
 
 Observe the output below. This output shows you the current IP address of the RDS PostgreSQL primary instance. In the next task, we will cause a failover and observe the change in the IP address as the primary instance changes. For now, leave this window open and let the command loop run. Proceed to the next task.
-
 ![HA](/images/7/2/1.png)
 
 #### Configure Event subscription for Failover event
@@ -33,15 +31,12 @@ To be notified about Failover events (or other ones) we create RDS Event subscri
 
 1. Open the Amazon RDS [console](https://console.aws.amazon.com/rds/home#event-subscriptions:)  and choose **Event Subscriptions** in the left pane.
 
-2. Click **Create event subscription**.
-
+2. Click **Create event subscription**.	
 ![HA](/images/7/2/2.png)
-3. We use an email subscription in this example - to get notifications over the email you provide:
-
+3. We use an email subscription in this example - to get notifications over the email you provide:	
 ![HA](/images/7/2/3.png)
 
-And choose **rdspg-fcj-labs** instance from the list or use the All instances option, and select the **Failover event** type:
-
+And choose **rdspg-fcj-labs** instance from the list or use the All instances option, and select the **Failover event** type:	
 ![HA](/images/7/2/4.png)
 
 {{% notice note %}}

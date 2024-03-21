@@ -1,36 +1,86 @@
 ---
-title : "Tạo S3 Bucket"
-date :  "`r Sys.Date()`" 
-weight : 2 
+title : "Kết nối đến Multi-AZ endpoint"
+date : "`r Sys.Date()`"
+weight : 2
 chapter : false
-pre : " <b> 4.2 </b> "
+pre : " <b> 7.2. </b> "
 ---
 
 
-Trong bước này, chúng ta sẽ tạo 1 S3 bucket để lưu trữ các session logs được gửi từ các EC2 instance.
 
-#### Tạo **S3 Bucket**
+**RDS PostgreSQL** cung cấp cho khách hàng tùy chọn mô phỏng lỗi AZ và Tính sẵn sàng cao bằng cách cung cấp tùy chọn khởi động lại Postgres Instance bằng tùy chọn chuyển đổi dự phòng. Tùy chọn này sẽ bắt đầu chuyển đổi dự phòng cấp AZ cho Instance, Instance trên AZ phụ sẽ trở thành Instance chính và Instance trên AZ chính sẽ trở thành Instance phụ mới.
 
-1. Truy cập [giao diện quản trị dịch vụ S3](https://s3.console.aws.amazon.com/s3/home)
-  + Click **Create bucket**.
 
-![S3](/images/4.s3/005-s3.png)
+1. Trong EC2 instance terminal, hãy nhập và chạy các lệnh này để hiển thị kết nối với cơ sở dữ liệu trong khoảng thời gian 10 giây:
+```
+while true;
+do
+psql -h rdspg-fcj-labs.cssuddr073hp.us-east-1.rds.amazonaws.com -U masteruser pglab; 
+echo -e "\n\n"
+sleep 10
+done
 
-2. Tại trang **Create bucket**.
-  + Tại mục **Bucket name** điền tên bucket **lab-yourname-bucket-0001**
-  + Tại mục **Region** chọn **Region** bạn đang làm lab hiện tại. 
+```
 
-![S3](/images/4.s3/006-s3.png)
+Quan sát output dưới đây. Output này hiển thị cho bạn địa chỉ IP hiện tại của RDS PostgreSQL instance chính. Trong nhiệm vụ tiếp theo, chúng tôi sẽ thực hiện chuyển đổi dự phòng và quan sát sự thay đổi trong địa chỉ IP khi instance chính thay đổi. Hiện tại, hãy để terminal này mở và để vòng lặp lệnh chạy. Tiến hành nhiệm vụ tiếp theo.
+![HA](/images/7/2/1.png)
 
- {{%notice tip%}}
-Tên S3 bucket phải đảm bảo không trùng với toàn bộ S3 bucket khác trong hệ thống. Bạn có thể thay thế tên mình và điền số ngẫu nhiên khi tạo tên S3 bucket.
-{{%/notice%}}
+#### Cấu hình Event subscription cho Failover event
 
-3. Kéo chuột xuống phía dưới và click **Create bucket**.
+Để nhận thông báo về các sự kiện Failover (hoặc các sự kiện khác), chúng tôi tạo RDS Event subscription cho bài lab này.
 
-![S3](/images/4.s3/007-s3.png)
+1. Truy cập giao diện Amazon RDS [console](https://console.aws.amazon.com/rds/home#event-subscriptions:)  và chọn **Event Subscriptions**.
 
- {{%notice tip%}}
-Khi tạo S3 bucket chúng ta đã thực hiện **Block all public access** nên các EC2 instance của chúng ta sẽ không thể kết nối tới S3 thông qua mạng internet.
-Trong bước tiếp theo chúng ta sẽ cấu hình tính năng S3 Gateway Endpoint để cho phép các EC2 instance có thể kết nối tới S3 bucket thông qua mạng nội bộ của VPC.
-{{%/notice%}}
+2. Chọn **Create event subscription**.	
+![HA](/images/7/2/2.png)
+3. Chúng ta sử dụng **email subscription** trong ví dụ này - để nhận thông báo qua email bạn cung cấp:
+![HA](/images/7/2/3.png)
+
+Và chọn **rdspg-fcj-labs** instance từ danh sách hoặc sử dụng tùy chọn **All instances** và chọn **Failover event**:	
+![HA](/images/7/2/4.png)
+
+{{% notice note %}}
+Trước khi có thể bắt đầu nhận thông báo sự kiện qua email, bạn cần phải xác minh địa chỉ email của mình. Bạn sẽ nhận được email xác minh ngay sau khi tạo đăng ký.
+![HA](/images/7/2/5.png)
+{{% /notice %}}
+
+
+#### (Không bắt buộc) AWS CLI
+
+Ngoài ra, bạn có thể tạo Event Subscription bằng AWS CLI như dưới đây:
+{{%expand "Code" %}}
+Đoạn code sau tạo SNS Topic và RDS Event Subscription.
+
+```
+
+AWSREGION=`aws configure get region`
+
+# Tạo SNS Topic cho Event Subscription
+
+SNSTOPICARN=$(aws sns create-topic \
+    --name rdspg-fcj-email \
+    --region $AWSREGION \
+    --output text)
+
+# Đăng ký ID E-mail cho SNS Topic
+
+aws sns subscribe \
+	--topic-arn $SNSTOPICARN \
+	--protocol email \
+	--no-return-subscription-arn \
+	--notification-endpoint fcj@gmail.com \
+	--region $AWSREGION
+
+# Tạo RDS Event Subscription
+
+aws rds create-event-subscription \
+	--subscription-name subscr-rdspg-fcj-labs \
+	--sns-topic-arn $SNSTOPICARN \
+	--source-type db-instance \
+	--event-categories failover \
+	--source-ids rdspg-fcj-labs \
+	--region $AWSREGION \
+	--enabled
+
+```
+{{% /expand%}}

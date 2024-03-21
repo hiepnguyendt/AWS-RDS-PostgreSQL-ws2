@@ -1,23 +1,22 @@
 ---
-title : "Các bước chuẩn bị"
-date :  "`r Sys.Date()`" 
-weight : 2 
+title : "Scalability"
+date : "`r Sys.Date()`"
+weight : 5
 chapter : false
-pre : " <b> 2. </b> "
+pre : " <b> 5. </b> "
 ---
 
-{{% notice info %}}
-Bạn cần tạo sẵn 1 Linux instance thuộc public subnet và 1 Window instance thuộc private subnet để thực hiện bài thực hành này.
-{{% /notice %}}
+**Scalability** là khả năng để xử lý lượng dữ liệu và lưu lượng ngày càng tăng mà không ảnh hưởng đến hiệu suất của một hệ thống. Amazon RDS PostgreSQL cung cấp nhiều tùy chọn về khả năng mở rộng, bao gồm:
 
-Để tìm hiểu cách tạo các EC2 instance và VPC với public/private subnet các bạn có thể tham khảo bài lab :
-  - [Giới thiệu về Amazon EC2](https://000004.awsstudygroup.com/vi/)
-  - [Làm việc với Amazon VPC](https://000003.awsstudygroup.com/vi/)
+- Vertical scaling: Việc tăng kích thước của DB instance class có thể cung cấp thêm CPU, bộ nhớ và dung lượng I/O.
+- Horizontal scaling: Việc thêm read replicas vào phiên bản DB của bạn có thể phân phối lưu lượng đọc trên nhiều phiên bản và cải thiện hiệu suất.
+- Aurora: Amazon RDS Aurora là cơ sở dữ liệu quan hệ tương thích với MySQL và PostgreSQL được quản lý toàn phần, được xây dựng cho đám mây. Aurora cung cấp khả năng mở rộng và hiệu suất cao, đồng thời cũng có tính sẵn sàng cao.
 
-Để sử dụng System Manager để quản lý window instance nói riêng và các instance nói chung của chúng ta trên AWS, ta cần phải cung cấp quyền cho các instance của chúng ta có thể làm việc với System Manager.Trong phần chuẩn bị này, chúng ta cũng sẽ tiến hành tạo IAM Role để cấp quyền cho các instance có thể làm việc với System Manager.
+**Trong bài thực hành này**, bạn sẽ thêm một phiên bản bản sao chỉ có quyền đọc vào cấu hình của mình để cung cấp thêm khả năng mở rộng khả năng đọc cho ứng dụng của bạn. Và mô phỏng kịch bản chuyển đổi dự phòng đọc-bản sao.
 
-### Nội dung
-  - [Chuẩn bị VPC và EC2 Instance](2.1-createec2/)
-  - [Tạo IAM Role](2.2-createiamrole/)
-
-  
+#### Nội dung:
+1. [Tạo Read-replica để cung cấp khả năng mở rộng đọc](5-1-create/)
+2. [Chuyển đổi Read Replica thành instance độc lập](5-2-promote/)
+3. [Perform vertical scaling](5-3-perform/)
+4. [Di chuyển sang DB Multi-AZ cluster bằng read replica](5-4-migrating/)
+5. [Tạo DB instance read replica từ a Multi-AZ DB cluster](5-5-multiazdbcluster/)
